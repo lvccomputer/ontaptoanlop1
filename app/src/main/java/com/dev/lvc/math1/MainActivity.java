@@ -1,5 +1,6 @@
 package com.dev.lvc.math1;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -20,15 +21,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
-    private Toolbar toolbar;
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private DrawerLayout drawerLayout;
 
     private NavigationView navigationView;
+
+    private ImageView imgNav;
 
 
     @Override
@@ -38,23 +39,21 @@ public class MainActivity extends AppCompatActivity
         initID();
         initView();
 
+
     }
 
     private void initID() {
-        toolbar = findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
-
-
+        imgNav = findViewById(R.id.imgNav);
     }
 
     private void initView() {
-        setSupportActionBar(toolbar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
+        imgNav.setOnClickListener(this );
+
     }
 
     @Override
@@ -83,5 +82,15 @@ public class MainActivity extends AppCompatActivity
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        int id  = v.getId();
+        switch (id){
+            case R.id.imgNav:
+                drawerLayout.openDrawer(GravityCompat.START);
+        }
     }
 }
