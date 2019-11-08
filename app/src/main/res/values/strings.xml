@@ -10,4 +10,6 @@
     <string name="menu_home">Home</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="test">Kiểm Tra</string>
+    <string name="luyentap">Luyện Tập</string>
 </resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    app:cardBackgroundColor="#fff"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="1dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:id="@+id/imgLuyenTap"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="5dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tvLuyenTap"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_toStartOf="@+id/imgNext"
+            android:layout_toEndOf="@+id/imgLuyenTap"
+            android:ellipsize="marquee"
+            android:gravity="bottom"
+            android:paddingStart="10dp"
+            android:singleLine="true"
+            android:text="Bài 1: Lớn hơn bé hơn"
+            android:textColor="#2196F3"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvLuyenTap"
+            android:layout_toEndOf="@+id/imgLuyenTap"
+            android:paddingStart="10dp"
+            android:text="Bấm để bắt đầu luyện tập" />
+
+        <ImageView
+            android:id="@+id/imgNext"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:padding="22dp"
+            android:src="@drawable/ic_right" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/clickItemLuyenTap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true">
+
+    </FrameLayout>
+</androidx.cardview.widget.CardView>
