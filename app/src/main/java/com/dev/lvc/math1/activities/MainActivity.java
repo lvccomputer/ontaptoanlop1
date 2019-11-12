@@ -1,32 +1,29 @@
 package com.dev.lvc.math1.activities;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import com.dev.lvc.math1.R;
-import com.dev.lvc.math1.fragments.KiemTraFragment;
-import com.dev.lvc.math1.fragments.LuyenTapFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.dev.lvc.math1.fragments.HistoryFragment;
+import com.dev.lvc.math1.fragments.TestFragment;
+import com.dev.lvc.math1.fragments.TestingFragment;
+import com.dev.lvc.math1.fragments.PracticeFragment;
 
 import android.os.Handler;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import android.view.MenuItem;
 
+import com.dev.lvc.math1.models.History;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
-import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -41,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private RelativeLayout layoutLuyenTap;
 
-    private RelativeLayout layoutKiemTra;
+    private RelativeLayout layoutKiemTra,layoutHistory;
 
 
     @Override
@@ -60,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         imgNav = findViewById(R.id.imgNav);
         layoutLuyenTap = findViewById(R.id.layoutLuyenTap);
         layoutKiemTra = findViewById(R.id.layoutKiemTra);
+        layoutHistory = findViewById(R.id.layoutHistory);
     }
 
     private void initView() {
@@ -70,42 +68,57 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         layoutKiemTra.setOnClickListener(v -> showKiemTraFragment());
         layoutLuyenTap.setOnClickListener(v -> showLuyenTapFragment());
+        layoutHistory.setOnClickListener(v -> showHistoryFragment());
     }
 
     protected boolean isExit = false;
+
     @Override
     public void onBackPressed() {
         int index = getSupportFragmentManager().getBackStackEntryCount();
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
-            if (index>0){
+            if (index > 0) {
                 super.onBackPressed();
-            }else {
-                if (isExit){
+            } else {
+                if (isExit) {
                     finish();
-                }else {
-                    Toast.makeText(MainActivity.this,"Ấn thêm lần nữa để thoát!",Toast.LENGTH_LONG).show();
-                    isExit= true;
-                    new Handler().postDelayed(() -> isExit=false,3000);
+                } else {
+                    Toast.makeText(MainActivity.this, "Ấn thêm lần nữa để thoát!", Toast.LENGTH_LONG).show();
+                    isExit = true;
+                    new Handler().postDelayed(() -> isExit = false, 3000);
                 }
             }
         }
     }
 
     private void showLuyenTapFragment() {
-        if (getSupportFragmentManager().findFragmentByTag(LuyenTapFragment.class.getName()) == null) {
-            LuyenTapFragment fragment = new LuyenTapFragment();
-            addFragment(fragment, LuyenTapFragment.class.getName());
-        }
-    }
-    private void showKiemTraFragment(){
-        if (getSupportFragmentManager().findFragmentByTag(KiemTraFragment.class.getName())==null){
-            KiemTraFragment fragment = new KiemTraFragment();
-            addFragment(fragment,KiemTraFragment.class.getName());
+        if (getSupportFragmentManager().findFragmentByTag(PracticeFragment.class.getName()) == null) {
+            PracticeFragment fragment = new PracticeFragment();
+            addFragment(fragment, PracticeFragment.class.getName());
         }
     }
 
+    private void showKiemTraFragment() {
+        if (getSupportFragmentManager().findFragmentByTag(TestFragment.class.getName()) == null) {
+            TestFragment fragment = new TestFragment();
+            addFragment(fragment, TestFragment.class.getName());
+        }
+    }
+
+    public void showBaiLamFragment() {
+        if (getSupportFragmentManager().findFragmentByTag(TestingFragment.class.getName()) == null) {
+            TestingFragment fragment = new TestingFragment();
+            addFragment(fragment, TestingFragment.class.getName());
+        }
+    }
+    private void showHistoryFragment() {
+        if (getSupportFragmentManager().findFragmentByTag(HistoryFragment.class.getName()) == null) {
+            HistoryFragment historyFragment = new HistoryFragment();
+            addFragment(historyFragment, HistoryFragment.class.getName());
+        }
+    }
     private void addFragment(@NonNull Fragment fragment, @NonNull String fragmentTags) {
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(fragmentTags)
@@ -113,6 +126,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .add(R.id.drawer_layout, fragment, fragmentTags)
                 .commitAllowingStateLoss();
     }
+
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

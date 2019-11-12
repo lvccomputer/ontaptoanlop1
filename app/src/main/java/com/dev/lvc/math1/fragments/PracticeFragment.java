@@ -9,19 +9,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.R;
-import com.dev.lvc.math1.adapters.LuyenTapAdapter;
+import com.dev.lvc.math1.adapters.PracticeAdapter;
 import com.dev.lvc.math1.models.Data;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class LuyenTapFragment extends BaseFragment {
+public class PracticeFragment extends BaseFragment {
 
     private FloatingActionButton floatBack;
 
     private RecyclerView rcvLuyenTap;
 
-    private LuyenTapAdapter luyenTapAdapter;
+    private PracticeAdapter practiceAdapter;
 
     private ArrayList<Data> dataArrayList;
 
@@ -53,13 +53,13 @@ public class LuyenTapFragment extends BaseFragment {
         dataArrayList.add(new Data(R.drawable.ic_high,"Bài 10. Các số tròn chục"));
         dataArrayList.add(new Data(R.drawable.ic_high,"Bài 11. Giải bài toán có lời văn"));
 
-        luyenTapAdapter = new LuyenTapAdapter(dataArrayList,mainActivity);
+        practiceAdapter = new PracticeAdapter(dataArrayList,mainActivity);
         rcvLuyenTap.setLayoutManager(new LinearLayoutManager(mainActivity));
-        rcvLuyenTap.setAdapter(luyenTapAdapter);
+        rcvLuyenTap.setAdapter(practiceAdapter);
 
     }
     @Override
     protected int getIdResource() {
-        return R.layout.fragment_luyen_tap;
+        return R.layout.fragment_practice;
     }
 }

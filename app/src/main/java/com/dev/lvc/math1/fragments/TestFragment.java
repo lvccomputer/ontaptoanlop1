@@ -9,19 +9,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.R;
-import com.dev.lvc.math1.adapters.KiemTraAdapter;
+import com.dev.lvc.math1.adapters.TestAdapter;
 import com.dev.lvc.math1.models.Data;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class KiemTraFragment extends BaseFragment {
+public class TestFragment extends BaseFragment {
 
     private FloatingActionButton floatBack;
 
     private RecyclerView rcvKiemTra;
 
-    private KiemTraAdapter kiemTraAdapter;
+    private TestAdapter kiemTraTestAdapter;
 
     private ArrayList<Data> dataArrayList;
 
@@ -53,14 +53,16 @@ public class KiemTraFragment extends BaseFragment {
         dataArrayList.add(new Data(R.drawable.ic_high,"Bài 10. Các số tròn chục"));
         dataArrayList.add(new Data(R.drawable.ic_high,"Bài 11. Giải bài toán có lời văn"));
 
-        kiemTraAdapter = new KiemTraAdapter(dataArrayList,mainActivity);
+        kiemTraTestAdapter = new TestAdapter(dataArrayList,mainActivity);
         rcvKiemTra.setLayoutManager(new LinearLayoutManager(mainActivity));
-        rcvKiemTra.setAdapter(kiemTraAdapter);
-
+        rcvKiemTra.setAdapter(kiemTraTestAdapter);
+        kiemTraTestAdapter.setOnClickItemKiemTra(position ->{
+            mainActivity.showBaiLamFragment();
+        });
 
     }
     @Override
     protected int getIdResource() {
-        return R.layout.fragment_kiem_tra;
+        return R.layout.fragment_test;
     }
 }

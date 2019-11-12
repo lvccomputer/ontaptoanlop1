@@ -15,14 +15,14 @@ import com.dev.lvc.math1.models.Data;
 
 import java.util.ArrayList;
 
-public class LuyenTapAdapter extends RecyclerView.Adapter<LuyenTapAdapter.ItemLuyenTapViewHolder> {
+public class PracticeAdapter extends RecyclerView.Adapter<PracticeAdapter.ItemLuyenTapViewHolder> {
 
 
     private ArrayList<Data> arrayList;
 
     private Context context;
 
-    public LuyenTapAdapter(ArrayList<Data> arrayList, Context context) {
+    public PracticeAdapter(ArrayList<Data> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
@@ -32,7 +32,7 @@ public class LuyenTapAdapter extends RecyclerView.Adapter<LuyenTapAdapter.ItemLu
     @Override
     public ItemLuyenTapViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.item_list_luyen_tap,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_list,parent,false);
 
         return new ItemLuyenTapViewHolder(view);
     }
