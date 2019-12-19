@@ -1,6 +1,7 @@
 package com.dev.lvc.math1.adapters;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ItemKiemTraVie
     @NonNull
     @Override
     public ItemKiemTraViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_list,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_list_tests,parent,false);
 
         return new ItemKiemTraViewHolder(view);
     }
@@ -41,11 +42,8 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ItemKiemTraVie
     public void onBindViewHolder(@NonNull ItemKiemTraViewHolder holder, int position) {
         Data data = arrayList.get(position);
 
-        holder.imgKiemtra.setImageResource(data.getIcon());
-        holder.tvKiemtra.setText(data.getName());
-        holder.view.setOnClickListener(v -> {
-            if (onClickItemKiemTra!=null) onClickItemKiemTra.setOnClickItemKiemTra(position);
-        });
+        holder.imgIconOfTests.setImageResource(data.getIcon());
+        holder.tvNameOfTests.setText(data.getName());
 
     }
 
@@ -55,19 +53,21 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ItemKiemTraVie
     }
 
     public class ItemKiemTraViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvKiemtra;
-        private ImageView imgKiemtra;
+        private TextView tvNameOfTests;
+        private ImageView imgIconOfTests;
 
         private View view;
         public ItemKiemTraViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvKiemtra = itemView.findViewById(R.id.tvLuyenTap);
-            imgKiemtra = itemView.findViewById(R.id.imgLuyenTap);
-            tvKiemtra.setHorizontallyScrolling( true );
-            tvKiemtra.setSelected( true );
-            tvKiemtra.requestLayout();
-            view = itemView.findViewById(R.id.clickItemLuyenTap);
+            tvNameOfTests = itemView.findViewById(R.id.tvType);
+            imgIconOfTests = itemView.findViewById(R.id.imgLogo);
+            tvNameOfTests.setGravity(Gravity.CENTER_HORIZONTAL );
+            itemView.getLayoutParams().height = (int) (context.getResources().getDisplayMetrics().heightPixels / 6);
+            itemView.getLayoutParams().width = (int) (context.getResources().getDisplayMetrics().widthPixels / 4);
+            itemView.setOnClickListener(v -> {
+                if (onClickItemKiemTra!=null) onClickItemKiemTra.setOnClickItemKiemTra(getAdapterPosition());
 
+            });
         }
     }
 

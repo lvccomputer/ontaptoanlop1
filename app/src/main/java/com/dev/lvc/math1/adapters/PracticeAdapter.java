@@ -11,59 +11,69 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.R;
-import com.dev.lvc.math1.models.Data;
+import com.dev.lvc.math1.Utils;
+import com.dev.lvc.math1.models.Practice;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class PracticeAdapter extends RecyclerView.Adapter<PracticeAdapter.ItemLuyenTapViewHolder> {
+public class PracticeAdapter extends RecyclerView.Adapter<PracticeAdapter.ItemTrainingAdapter> {
 
-
-    private ArrayList<Data> arrayList;
+    private ArrayList<Practice> practiceArrayList;
 
     private Context context;
 
-    public PracticeAdapter(ArrayList<Data> arrayList, Context context) {
-        this.arrayList = arrayList;
+    private OnClickItemPractice onClickItemPractice;
+
+    public PracticeAdapter(ArrayList<Practice> practiceArrayList, Context context) {
+        this.practiceArrayList = practiceArrayList;
         this.context = context;
     }
 
-
     @NonNull
     @Override
-    public ItemLuyenTapViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ItemTrainingAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.item_list,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_list_training, parent, false);
 
-        return new ItemLuyenTapViewHolder(view);
+        return new ItemTrainingAdapter(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemLuyenTapViewHolder holder, int position) {
-        Data data = arrayList.get(position);
-
-        holder.imgLuyenTap.setImageResource(data.getIcon());
-        holder.tvLuyenTap.setText(data.getName());
-
+    public void onBindViewHolder(@NonNull ItemTrainingAdapter holder, int position) {
+        Practice practice = practiceArrayList.get(position);
+        Picasso.get().load(Utils.URI + practice.getFolderImage() + "/" + practice.getIcon()).into(holder.imgIcon);
+        holder.tvTitleTrain.setText(practice.getTitlePractice());
     }
 
     @Override
     public int getItemCount() {
-        return arrayList.size();
+        return practiceArrayList.size();
     }
 
-    public class ItemLuyenTapViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvLuyenTap;
+    public class ItemTrainingAdapter extends RecyclerView.ViewHolder {
+        private ImageView imgIcon;
+        private TextView tvTitleTrain;
 
-        private ImageView imgLuyenTap;
-
-        public ItemLuyenTapViewHolder(@NonNull View itemView) {
+        public ItemTrainingAdapter(@NonNull View itemView) {
             super(itemView);
-            tvLuyenTap = itemView.findViewById(R.id.tvLuyenTap);
-            imgLuyenTap = itemView.findViewById(R.id.imgLuyenTap);
+            imgIcon = itemView.findViewById(R.id.imgTraining);
+            tvTitleTrain = itemView.findViewById(R.id.tvTitleTraining);
 
-            tvLuyenTap.setHorizontallyScrolling( true );
-            tvLuyenTap.setSelected( true );
-            tvLuyenTap.requestLayout();
+            itemView.getLayoutParams().height = (int) (context.getResources().getDisplayMetrics().heightPixels / 3);
+            itemView.getLayoutParams().width = (int) (context.getResources().getDisplayMetrics().widthPixels / 2);
+            itemView.setOnClickListener(v -> {
+                if (onClickItemPractice!=null)onClickItemPractice.setOnClickItemPractice(getAdapterPosition(),practiceArrayList.get(getAdapterPosition()));
+            });
+
         }
+    }
+
+    public void setOnClickItemPractice(OnClickItemPractice onClickItemPractice) {
+        this.onClickItemPractice = onClickItemPractice;
+    }
+
+    public interface OnClickItemPractice{
+        void setOnClickItemPractice(int position, Practice practice);
     }
 }

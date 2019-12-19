@@ -16,16 +16,19 @@
 
 
         <TextView
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:id="@+id/tvTitle"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Danh sách các bài luyện Tập"
+            android:text="Chương 1: "
             android:textColor="#fff" />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="10dp"
+
         android:id="@+id/rcvLuyenTap"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

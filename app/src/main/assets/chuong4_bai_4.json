@@ -1,0 +1,114 @@
+{ 
+   "chuong4_bai_4":[ 
+      { 
+         "id":"1",
+         "yeucau":"Đồng hồ đang chỉ mấy giờ ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c4b41.png",
+         "A":"6",
+         "B":"7",
+         "C":"8",
+         "D":"9",
+         "check":"B"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Có tất cả bao nhiêu que tính ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c4b42.png",
+         "A":"33",
+         "B":"34",
+         "C":"35",
+         "D":"36",
+         "check":"B"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Thực hiện phép tính sau:",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c4b43.png",
+         "A":"3",
+         "B":"4",
+         "C":"5",
+         "D":"6",
+         "check":"C"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"45+55=?",
+         "hinh":"",
+         "A":"97",
+         "B":"98",
+         "C":"99",
+         "D":"100",
+         "check":"D"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Điền số thích hợp vào chỗ ...:",
+         "chu":"6...+23=90",
+         "hinh":"",
+         "A":"6",
+         "B":"7",
+         "C":"8",
+         "D":"9",
+         "check":"B"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Số liền Trước của 61 là:",
+         "chu":"60-->61",
+         "hinh":"",
+         "A":"60",
+         "B":"61",
+         "C":"62",
+         "D":"63",
+         "check":"A"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Điền dấu thích hợp vào chỗ ...",
+         "chu":"25...60-35",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" =",
+         "D":" +",
+         "check":"C"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"67+13",
+         "hinh":"",
+         "A":"60",
+         "B":"70",
+         "C":"80",
+         "D":"90",
+         "check":"C"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Điền số thích hợp vào chỗ ...:",
+         "chu":"...5+35=60",
+         "hinh":"",
+         "A":"1",
+         "B":"2",
+         "C":"3",
+         "D":"4",
+         "check":"B"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Số liền sau của 69 là:",
+         "chu":"69-->70",
+         "hinh":"",
+         "A":"60",
+         "B":"70",
+         "C":"80",
+         "D":"90",
+         "check":"B"
+      }
+   ]
+}

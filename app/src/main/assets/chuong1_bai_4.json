@@ -1,0 +1,114 @@
+{ 
+   "chuong1_bai_4":[ 
+      { 
+         "id":"1",
+         "yeucau":"Có tất cả bao nhiêu hình vuông ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb41.png",
+         "A":"2",
+         "B":"6",
+         "C":"7",
+         "D":"1",
+         "check":"A"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Có tất cả bao nhiêu ngôi nhà ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb42.png",
+         "A":"1",
+         "B":"2",
+         "C":"3",
+         "D":"4",
+         "check":"A"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Có tất cả bao nhiêu tam giác ??",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb43.png",
+         "A":"2",
+         "B":"3",
+         "C":"4",
+         "D":"5",
+         "check":"B"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Điền dấu vào chỗ ...:",
+         "chu":"3+5...7-2",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" +",
+         "D":" =",
+         "check":"B"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Điền dấu vào chỗ ...:",
+         "chu":"6-1...7+3",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":"-",
+         "D":" =",
+         "check":"B"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Có tất cả bao nhiêu cây nấm ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb46.png",
+         "A":"7",
+         "B":"6",
+         "C":"5",
+         "D":"4",
+         "check":"D"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"2+4+4=?",
+         "hinh":"",
+         "A":"10",
+         "B":"7",
+         "C":"8",
+         "D":"9",
+         "check":"A"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Có tất cả bao nhiêu con kiến ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb48.png",
+         "A":"2",
+         "B":"1",
+         "C":"3",
+         "D":"4",
+         "check":"C"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Có tất cả bao nhiêu bông hoa ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb49.png",
+         "A":"3",
+         "B":"2",
+         "C":"4",
+         "D":"5",
+         "check":"D"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Có tất cả bao nhiêu cái bát ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb410.png",
+         "A":"1",
+         "B":"2",
+         "C":"3",
+         "D":"4",
+         "check":"A"
+      }
+   ]
+}

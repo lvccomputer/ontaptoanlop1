@@ -1,0 +1,114 @@
+{ 
+   "chuong4_bai_5":[ 
+      { 
+         "id":"1",
+         "yeucau":"Đồng hồ đang chỉ mấy giờ ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c4b51.png",
+         "A":"10",
+         "B":"11",
+         "C":"12",
+         "D":"13",
+         "check":"C"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Hãy chỉ ra ngày trên ảnh ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c4b52.png",
+         "A":"",
+         "B":"",
+         "C":"",
+         "D":"",
+         "check":"19"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Thực hiện phép tính sau:",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c4b53.png",
+         "A":"32",
+         "B":"33",
+         "C":"34",
+         "D":"35",
+         "check":"A"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"34+54=?",
+         "hinh":"",
+         "A":"66",
+         "B":"77",
+         "C":"88",
+         "D":"99",
+         "check":"C"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Điền số thích hợp vào chỗ ...:",
+         "chu":"9...+1=100",
+         "hinh":"",
+         "A":"7",
+         "B":"8",
+         "C":"9",
+         "D":"10",
+         "check":"C"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Số liền Trước của 86 là:",
+         "chu":"85-->86",
+         "hinh":"",
+         "A":"85",
+         "B":"86",
+         "C":"87",
+         "D":"88",
+         "check":"A"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Điền dấu thích hợp vào chỗ ...",
+         "chu":"14...41",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" /",
+         "D":" =",
+         "check":"A"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"65+4=?",
+         "hinh":"",
+         "A":"69",
+         "B":"70",
+         "C":"76",
+         "D":"75",
+         "check":"A"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Điền số thích hợp vào chỗ ...:",
+         "chu":"6...+7=72",
+         "hinh":"",
+         "A":"3",
+         "B":"4",
+         "C":"5",
+         "D":"6",
+         "check":"C"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Số liền sau của 81 là:",
+         "chu":"81-->82",
+         "hinh":"",
+         "A":"79",
+         "B":"80",
+         "C":"81",
+         "D":"82",
+         "check":"D"
+      }
+   ]
+}

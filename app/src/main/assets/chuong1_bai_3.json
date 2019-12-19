@@ -1,0 +1,114 @@
+{ 
+   "chuong1_bai_3":[ 
+      { 
+         "id":"1",
+         "yeucau":"Đáp án của phép tính là?",
+         "chu":"6+3=?",
+         "hinh":"",
+         "A":"6",
+         "B":"9",
+         "C":"10",
+         "D":"4",
+         "check":"B"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Bên nào nhiều bướm hơn ??",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb32.png",
+         "A":"Bên trái",
+         "B":"Bên phải",
+         "C":"",
+         "D":"",
+         "check":"Bên trái"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Điền số thích hợp vào chỗ trống:",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb33.png",
+         "A":"",
+         "B":"",
+         "C":"",
+         "D":"",
+         "check":"9"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Bên nào nhiều thỏ hơn ??",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb34.png",
+         "A":"Bên trái",
+         "B":"Bên phải",
+         "C":"",
+         "D":"",
+         "check":"Bên trái"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Điền dấu thích hợp vào chỗ ... :",
+         "chu":"7+3...2+9",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" - ",
+         "D":" =",
+         "check":"A"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Điền dấu thích hợp vào chỗ ... :",
+         "chu":"5+0...1+4",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" +",
+         "D":" =",
+         "check":"D"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Có tất cả bao nhiều người trong hình: ",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb37.png",
+         "A":"7",
+         "B":"9",
+         "C":"8",
+         "D":"10",
+         "check":"D"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Đáp án của phép tính là?",
+         "chu":"4+4",
+         "hinh":"",
+         "A":"5",
+         "B":"6",
+         "C":"8",
+         "D":"9",
+         "check":"C"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Có bao nhiêu quả cam trong hình ??",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb39.png",
+         "A":"5",
+         "B":"3",
+         "C":"2",
+         "D":"4",
+         "check":"Bên trái"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Có bao nhiêu con voi trong hình ??",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb310.png",
+         "A":"2",
+         "B":"3",
+         "C":"5",
+         "D":"4",
+         "check":"A"
+      }
+   ]
+}

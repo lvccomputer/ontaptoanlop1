@@ -1,0 +1,114 @@
+{ 
+   "chuong1_bai_5":[ 
+      { 
+         "id":"1",
+         "yeucau":"Có tất cả bao nhiêu con thỏ ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb51.png",
+         "A":"1",
+         "B":"2",
+         "C":"3",
+         "D":"4",
+         "check":"D"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Có tất cả bao nhiêu củ cà rốt ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb52.png",
+         "A":"1",
+         "B":"2",
+         "C":"3",
+         "D":"4",
+         "check":"C"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Có tất cả bao nhiêu hình tròn ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb53.png",
+         "A":"2",
+         "B":"3",
+         "C":"4",
+         "D":"5",
+         "check":"D"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Có tất cả bao nhiêu hình vuông ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb54.png",
+         "A":"2",
+         "B":"3",
+         "C":"4",
+         "D":"5",
+         "check":"B"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Có tất cả bao nhiêu hình chữ nhật ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb55.png",
+         "A":"2",
+         "B":"3",
+         "C":"4",
+         "D":"5",
+         "check":"B"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Có tất cả bao nhiêu con thuyền ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb56.png",
+         "A":"1",
+         "B":"2",
+         "C":"3",
+         "D":"4",
+         "check":"C"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Có tất cả bao nhiêu lá cờ ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb57.png",
+         "A":"1",
+         "B":"2",
+         "C":"3",
+         "D":"4",
+         "check":"D"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Có tất cả bao nhiêu quả táo ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb58.png",
+         "A":"1",
+         "B":"2",
+         "C":"3",
+         "D":"4",
+         "check":"C"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Có tất cả bao nhiêu cái đĩa ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb59.png",
+         "A":"2",
+         "B":"3",
+         "C":"4",
+         "D":"5",
+         "check":"D"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Điền dấu thích hợp vào chỗ ...",
+         "chu":"2+5...9-2",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" +",
+         "D":" =",
+         "check":"D"
+      }
+   ]
+}

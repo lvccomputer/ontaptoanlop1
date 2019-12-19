@@ -1,0 +1,114 @@
+{ 
+   "chuong4_bai_1":[ 
+      { 
+         "id":"1",
+         "yeucau":"Đồng hồ đang chỉ mấy giờ ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c4b11.png",
+         "A":"1h",
+         "B":"2h",
+         "C":"3h ",
+         "D":"4h",
+         "check":"A"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Có tất cả bao nhiêu que tính ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c4b12.png",
+         "A":"20",
+         "B":"21",
+         "C":"22",
+         "D":"23",
+         "check":"D"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Thực hiện phép tính sau:",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c4b13.png",
+         "A":"31",
+         "B":"32",
+         "C":"33",
+         "D":"34",
+         "check":"D"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"66-33=?",
+         "hinh":"",
+         "A":"33",
+         "B":"22",
+         "C":"11",
+         "D":"0",
+         "check":"A"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Điền số thích hợp vào chỗ ...:",
+         "chu":"6...-25=40",
+         "hinh":"",
+         "A":"5",
+         "B":"4",
+         "C":"3",
+         "D":"2",
+         "check":"A"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Số liền Trước của 99 là:",
+         "chu":"98-->99",
+         "hinh":"",
+         "A":"87",
+         "B":"76",
+         "C":"98",
+         "D":"89",
+         "check":"C"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Điền dấu thích hợp vào chỗ ...",
+         "chu":"23...32",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" /",
+         "D":" =",
+         "check":"A"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"45+54=?",
+         "hinh":"",
+         "A":"99",
+         "B":"100",
+         "C":"51",
+         "D":"45",
+         "check":"A"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Điền số thích hợp vào chỗ ...:",
+         "chu":"...3>83",
+         "hinh":"",
+         "A":"7",
+         "B":"6",
+         "C":"5",
+         "D":"9",
+         "check":"D"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Số liền Trước của 80 là:",
+         "chu":"79-->80",
+         "hinh":"",
+         "A":"78",
+         "B":"79",
+         "C":"80",
+         "D":"81",
+         "check":"B"
+      }
+   ]
+}

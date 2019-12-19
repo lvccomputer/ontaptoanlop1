@@ -1,0 +1,114 @@
+{ 
+   "chuong2_bai_1":[ 
+      { 
+         "id":"1",
+         "yeucau":"Điền số thích hợp vào chỗ trống:",
+         "chu":"4+0=?",
+         "hinh":"",
+         "A":"2",
+         "B":"6",
+         "C":"8",
+         "D":"4",
+         "check":"D"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Có tổng cộng tất cả bao nhiêu bóng đèn ?",
+         "chu":"1+1=?",
+         "hinh":"",
+         "A":"0",
+         "B":"2",
+         "C":"1",
+         "D":"6",
+         "check":"B"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Có tổng cộng tất cả bao nhiêu chiếc bánh ?",
+         "chu":"2+2=?",
+         "hinh":"",
+         "A":"4",
+         "B":"5",
+         "C":"3",
+         "D":"8",
+         "check":"A"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Có tổng cộng tất cả bao nhiêu cái áo ?",
+         "chu":"2+3=?",
+         "hinh":"",
+         "A":"5",
+         "B":"6",
+         "C":"1",
+         "D":"8",
+         "check":"A"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Có tổng cộng tất cả bao nhiêu cái donut ?",
+         "chu":"3+3=?",
+         "hinh":"",
+         "A":"9",
+         "B":"4",
+         "C":"2",
+         "D":"6",
+         "check":"D"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Có tất cả bao nhiêu quả dâu ?",
+         "chu":"7-1=?",
+         "hinh":"",
+         "A":"4",
+         "B":"6",
+         "C":"1",
+         "D":"5",
+         "check":"B"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Có tất cả bao nhiêu hình vuông ?",
+         "chu":"8-1=?",
+         "hinh":"",
+         "A":"9",
+         "B":"4",
+         "C":"7",
+         "D":"5",
+         "check":"C"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Có tất cả bao nhiêu cái áo ?",
+         "chu":"9-1=?",
+         "hinh":"",
+         "A":"4",
+         "B":"8",
+         "C":"7",
+         "D":"9",
+         "check":"B"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Đáp án của phép tính này là:",
+         "chu":"8+2=?",
+         "hinh":"",
+         "A":"6",
+         "B":"9",
+         "C":"11",
+         "D":"10",
+         "check":"D"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Điền dấu vào chỗ ...:",
+         "chu":"3+2...9-4",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":"+",
+         "D":"=",
+         "check":"D"
+      }
+   ]
+}

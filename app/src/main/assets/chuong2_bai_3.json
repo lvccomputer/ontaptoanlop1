@@ -1,0 +1,114 @@
+{ 
+   "chuong2_bai_3":[ 
+      { 
+         "id":"1",
+         "yeucau":"Điền số thích hợp vào chỗ trống:",
+         "chu":"3+0=?",
+         "hinh":"",
+         "A":"3",
+         "B":"1",
+         "C":"5",
+         "D":"4",
+         "check":"D"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Có tổng cộng tất cả bao nhiêu con gà ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b32.png",
+         "A":"4",
+         "B":"2",
+         "C":"3",
+         "D":"5",
+         "check":"B"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Còn lại bao nhiêu con chim trên cành?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b33.png",
+         "A":"6",
+         "B":"2",
+         "C":"7",
+         "D":"4",
+         "check":"B"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Còn lại bao nhiêu chiếc bánh burger ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b34.png",
+         "A":"1",
+         "B":"2",
+         "C":"5",
+         "D":"4",
+         "check":"D"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Có bao nhiêu hình tròn tất cả ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b35.png",
+         "A":"7",
+         "B":"5",
+         "C":"6",
+         "D":"4",
+         "check":"C"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Có bao nhiêu hình vuông tất cả ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b36.png",
+         "A":"8",
+         "B":"5",
+         "C":"7",
+         "D":"3",
+         "check":"C"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Bên nào nhiều mũ hơn ??",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b37.png",
+         "A":"Bên trái",
+         "B":"Bên phải ",
+         "C":"",
+         "D":"",
+         "check":"A"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Có tổng cộng tất cả bao nhiêu chiếc donut ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b38.png",
+         "A":"2",
+         "B":"7",
+         "C":"5",
+         "D":"9",
+         "check":"D"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Điền số thích hợp vào chỗ trống:",
+         "chu":"2+1=?",
+         "hinh":"",
+         "A":"3",
+         "B":"5",
+         "C":"7",
+         "D":"8",
+         "check":"A"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Điền dấu thích hợp vào chỗ...",
+         "chu":"2+8...5+5",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" =",
+         "D":" +",
+         "check":"C"
+      }
+   ]
+}

@@ -1,0 +1,114 @@
+{ 
+   "chuong3_bai_2":[ 
+      { 
+         "id":"1",
+         "yeucau":"Đoạn thẳng nào dài hơn ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c3b21.png",
+         "A":"AB",
+         "B":"CD",
+         "C":"AC",
+         "D":"BD",
+         "check":"B"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Có tất cả bao nhiêu ngôi sao ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c3b22.png",
+         "A":"11",
+         "B":"10",
+         "C":"13",
+         "D":"12",
+         "check":"A"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Có tất cả bao nhiêu que tính ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c3b23.png",
+         "A":"11",
+         "B":"16",
+         "C":"13",
+         "D":"15",
+         "check":"A"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Điền số thích hợp vào chỗ trống:",
+         "chu":"12=3+...",
+         "hinh":"",
+         "A":"10",
+         "B":"9",
+         "C":"8",
+         "D":"7",
+         "check":"B"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Điền dấu thích hợp vào chỗ trống:",
+         "chu":"14...5+6+1",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" +",
+         "D":" =",
+         "check":"D"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"12-7=?",
+         "hinh":"",
+         "A":"4",
+         "B":"5",
+         "C":"6",
+         "D":"7",
+         "check":"B"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"14+2=?",
+         "hinh":"",
+         "A":"18",
+         "B":"15",
+         "C":"16",
+         "D":"17",
+         "check":"C"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Điền số thích hợp vào chỗ trống:",
+         "chu":"14+4=?",
+         "hinh":"",
+         "A":"20",
+         "B":"17",
+         "C":"18",
+         "D":"19",
+         "check":"C"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Điền dấu thích hợp vào chỗ trống:",
+         "chu":"13-2=?",
+         "hinh":"",
+         "A":"11",
+         "B":"15",
+         "C":"10",
+         "D":"14",
+         "check":"A"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Điền dấu thích hợp vào chỗ trống:",
+         "chu":"2 chục...20 đơn vị",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" +",
+         "D":" =",
+         "check":"D"
+      }
+   ]
+}

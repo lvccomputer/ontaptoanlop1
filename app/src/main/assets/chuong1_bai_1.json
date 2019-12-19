@@ -1,0 +1,114 @@
+{ 
+   "chuong1_bai_1":[ 
+      { 
+         "id":"1",
+         "yeucau":"Đáp án của phép tính là: ??",
+         "chu":"1+3=??",
+         "hinh":"",
+         "A":"4",
+         "B":"7",
+         "C":"2",
+         "D":"1",
+         "check":"A"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Hình nào nhiều hơn ??",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb12.png",
+         "A":"Hình vuông",
+         "B":"Hình tròn",
+         "C":"",
+         "D":"",
+         "check":"A"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Có tất cả bao nhiêu cái cốc ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb13.png",
+         "A":"4",
+         "B":"6",
+         "C":"8",
+         "D":"2",
+         "check":"B"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Hình nào là hình vuông ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb14.png",
+         "A":"Bên trái",
+         "B":"Bên Phải",
+         "C":"",
+         "D":"",
+         "check":"A"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Hình nào là hình tròn ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb14.png",
+         "A":"Bên trái",
+         "B":"Bên Phải",
+         "C":"",
+         "D":"",
+         "check":"B"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Có tất cả bao nhiêu hình tam giác ??",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb16.png",
+         "A":"2",
+         "B":"1",
+         "C":"3",
+         "D":"5",
+         "check":"C"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Điền số thích hợp vào chỗ trống ",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb17.png",
+         "A":"",
+         "B":"",
+         "C":"",
+         "D":"",
+         "check":"3"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Điền số thích hợp vào chỗ trống",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb18.png",
+         "A":"",
+         "B":"",
+         "C":"",
+         "D":"",
+         "check":"2"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Có bao nhiêu bạn nam ở trong hình ??",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb19.png",
+         "A":"2",
+         "B":"1",
+         "C":"3",
+         "D":"4",
+         "check":"D"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Có bao nhiêu máy bay trong hình ??",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb110.png",
+         "A":"3",
+         "B":"5",
+         "C":"2",
+         "D":"4",
+         "check":"B"
+      }
+   ]
+}

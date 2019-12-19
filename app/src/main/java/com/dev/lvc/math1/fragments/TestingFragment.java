@@ -20,18 +20,18 @@ public class TestingFragment extends BaseFragment{
     }
 
     private void initID(){
-//        layoutA = view.findViewById(R.id.layoutA);
-//        layoutC = view.findViewById(R.id.layoutC);
-//        layoutD = view.findViewById(R.id.layoutD);
-//        layoutB = view.findViewById(R.id.layoutB);
-//
-//        layoutA.setBackgroundResource(R.drawable.bg_false);
-//        layoutB.setBackgroundResource(R.drawable.bg_false);
-//        layoutC.setBackgroundResource(R.drawable.bg_false);
+        layoutA = view.findViewById(R.id.layoutA);
+        layoutC = view.findViewById(R.id.layoutC);
+        layoutD = view.findViewById(R.id.layoutD);
+        layoutB = view.findViewById(R.id.layoutB);
+
+        layoutA.setBackgroundResource(R.drawable.bg_false);
+        layoutB.setBackgroundResource(R.drawable.bg_false);
+        layoutC.setBackgroundResource(R.drawable.bg_false);
 
     }
     @Override
     protected int getIdResource() {
-        return R.layout.fragment_testing1;
+        return R.layout.fragment_testing;
     }
 }

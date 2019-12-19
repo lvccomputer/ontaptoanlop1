@@ -1,0 +1,114 @@
+{ 
+   "chuong2_bai_2":[ 
+      { 
+         "id":"1",
+         "yeucau":"Có tất cả bao nhiêu chú chim ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b21.png",
+         "A":"4",
+         "B":"1",
+         "C":"3",
+         "D":"5",
+         "check":"C"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Có tất cả bao nhiêu cái lồng ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b21.png",
+         "A":"6",
+         "B":"2",
+         "C":"3",
+         "D":"4",
+         "check":"B"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Có tất cả bao nhiêu cái oto ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b23.png",
+         "A":"4",
+         "B":"5",
+         "C":"3",
+         "D":"6",
+         "check":"C"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Có tất cả bao nhiêu quả bóng bay ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b24.png",
+         "A":"5",
+         "B":"2",
+         "C":"3",
+         "D":"4",
+         "check":"D"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Có tất cả bao nhiêu cái áo ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b25.png",
+         "A":"6",
+         "B":"1",
+         "C":"3",
+         "D":"5",
+         "check":"D"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Có tất cả bao nhiêu quả dâu ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b26.png",
+         "A":"4",
+         "B":"6",
+         "C":"5",
+         "D":"3",
+         "check":"C"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Có tất cả bao nhiêu cái bánh rán ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b27.png",
+         "A":"3",
+         "B":"6",
+         "C":"7",
+         "D":"5",
+         "check":"C"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Có tất cả bao nhiêu cái mũ ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c2b28.png",
+         "A":"10",
+         "B":"8",
+         "C":"11",
+         "D":"7",
+         "check":"B"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Điền dấu thích hợp vào chỗ trống ?",
+         "chu":"5+4...3+7",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":"-",
+         "D":" =",
+         "check":"A"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"3+2+2=?",
+         "hinh":"",
+         "A":"7",
+         "B":"6",
+         "C":"9",
+         "D":"5",
+         "check":"A"
+      }
+   ]
+}

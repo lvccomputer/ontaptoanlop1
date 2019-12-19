@@ -1,21 +1,30 @@
 package com.dev.lvc.math1.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.R;
+import com.dev.lvc.math1.Utils;
 import com.dev.lvc.math1.adapters.PracticeAdapter;
-import com.dev.lvc.math1.models.Data;
+import com.dev.lvc.math1.models.Practice;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class PracticeFragment extends BaseFragment {
+
+    private static final String TAG = "cuong";
 
     private FloatingActionButton floatBack;
 
@@ -23,7 +32,11 @@ public class PracticeFragment extends BaseFragment {
 
     private PracticeAdapter practiceAdapter;
 
-    private ArrayList<Data> dataArrayList;
+    private ArrayList<Practice> practiceArrayList;
+
+    private TextView tvTitle;
+
+    private String title;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -32,34 +45,64 @@ public class PracticeFragment extends BaseFragment {
         initView();
     }
 
-    private void init(){
-        dataArrayList = new ArrayList<>();
+    private void init() {
+        practiceArrayList = new ArrayList<>();
         rcvLuyenTap = view.findViewById(R.id.rcvLuyenTap);
         floatBack = view.findViewById(R.id.floatBack);
+        tvTitle = view.findViewById(R.id.tvTitle);
+        tvTitle.setText(title);
 
 
     }
-    private void initView(){
+
+    private void initView() {
         floatBack.setOnClickListener(v -> mainActivity.onBackPressed());
-        dataArrayList.add(new Data(R.drawable.ic_high,"Bài 1. Nhiều Hơn, Ít Hơn"));
-        dataArrayList.add(new Data(R.drawable.ic_high,"Bài 2. Hình Vuông, Hình Tròn, Hình Tam Giác"));
-        dataArrayList.add(new Data(R.drawable.ic_high,"Bài 3. Lớn Hơn, Bé Hơn, Bằng,Dấu < > ="));
-        dataArrayList.add(new Data(R.drawable.ic_high,"Bài 4. Phép Cộng Trong Phạm Vi 3"));
-        dataArrayList.add(new Data(R.drawable.ic_high,"Bài 5. Phép Cộng Trong Phạm Vi 5"));
-        dataArrayList.add(new Data(R.drawable.ic_high,"Bài 6. Phép Trừ Trong Phạm Vi 3"));
-        dataArrayList.add(new Data(R.drawable.ic_high,"Bài 7. Phép Trừ Trong Phạm Vi 5"));
-        dataArrayList.add(new Data(R.drawable.ic_high,"Bài 8. Điểm, đoạn thẳng"));
-        dataArrayList.add(new Data(R.drawable.ic_high,"Bài 9. Mười một, mười hai"));
-        dataArrayList.add(new Data(R.drawable.ic_high,"Bài 10. Các số tròn chục"));
-        dataArrayList.add(new Data(R.drawable.ic_high,"Bài 11. Giải bài toán có lời văn"));
-
-        practiceAdapter = new PracticeAdapter(dataArrayList,mainActivity);
-        rcvLuyenTap.setLayoutManager(new LinearLayoutManager(mainActivity));
+        practiceAdapter = new PracticeAdapter(practiceArrayList, mainActivity);
+        rcvLuyenTap.setLayoutManager(new GridLayoutManager(mainActivity,2));
         rcvLuyenTap.setAdapter(practiceAdapter);
+        practiceAdapter.setOnClickItemPractice((position, practice) -> {
+            mainActivity.showListOfPracticeFragment(String.valueOf(practice.getIdPractice()),practice.getTitlePractice(),practice.getFolderImage(),practice.getIcon());
+        });
 
     }
+
+
+    private void loadPracticeJsonData() {
+
+        try {
+            JSONObject practiceObject = new JSONObject(Utils.loadJSONFromAssets(mainActivity, "practice.json"));
+            String folderImage = practiceObject.getString("image");
+            Log.e(TAG, "loadPracticeJsonData: "+folderImage );
+            JSONArray practiceJsonArray = practiceObject.getJSONArray("list");
+            for (int index = 0; index < practiceJsonArray.length(); index++) {
+                JSONObject prac_inside = practiceJsonArray.getJSONObject(index);
+                Practice practice = new Practice();
+                practice.setFolderImage(folderImage);
+                practice.setIcon(prac_inside.getString("icon"));
+                practice.setIdPractice(Integer.valueOf(prac_inside.getString("id")));
+                practice.setTitlePractice(prac_inside.getString("title"));
+                practiceArrayList.add(practice);
+                Log.e(TAG, "loadPracticeJsonData: "+folderImage );
+            }
+        } catch (JSONException e) {
+            Log.e(TAG, "ERROR JSON: "+e );
+        }
+        practiceAdapter.notifyDataSetChanged();
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadPracticeJsonData();
+    }
+
     @Override
     protected int getIdResource() {
-        return R.layout.fragment_practice;
+        return R.layout.fragment_try_hard;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

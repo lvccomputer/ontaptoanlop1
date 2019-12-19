@@ -1,0 +1,114 @@
+{ 
+   "chuong3_bai_1":[ 
+      { 
+         "id":"1",
+         "yeucau":"Hình ảnh trong hình là gì ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c3b11.png",
+         "A":"Điểm",
+         "B":"Đoạn thẳng",
+         "C":"Hình tròn",
+         "D":"hình vuông",
+         "check":"B"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Hình ảnh trong hình là gì ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c3b12.png",
+         "A":"Điểm",
+         "B":"hình vuông",
+         "C":"Hình tròn",
+         "D":"Đoạn thẳng",
+         "check":"A"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Đoạn thẳng nào ngắn hơn ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c3b13.png",
+         "A":"AB",
+         "B":"CD",
+         "C":"AC",
+         "D":"BD",
+         "check":"A"
+      },
+      { 
+         "id":"4",
+         "yeucau":"1 chục bằng bao nhiêu đơn vị ?",
+         "chu":"1 chục = ? đơn vị",
+         "hinh":"",
+         "A":"11",
+         "B":"9",
+         "C":"10",
+         "D":"12",
+         "check":"C"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Điền dấu thích hợp vào chỗ ...",
+         "chu":"1 chục ... 8 đơn vị",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" +",
+         "D":" =",
+         "check":"B"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"10+1=?",
+         "hinh":"",
+         "A":"12",
+         "B":"11",
+         "C":"10",
+         "D":"9",
+         "check":"B"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Điền số thích hợp vào chỗ ...:",
+         "chu":"10+2=...-3",
+         "hinh":"",
+         "A":"20",
+         "B":"15",
+         "C":"16",
+         "D":"17",
+         "check":"B"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Điền dấu thích hợp vào chỗ ...",
+         "chu":"14-3...13-2",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" =",
+         "D":" +",
+         "check":"C"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"8+3=?",
+         "hinh":"",
+         "A":"11",
+         "B":"15",
+         "C":"12",
+         "D":"14",
+         "check":"A"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Điền số thích hợp vào chỗ ...:",
+         "chu":"5+2=...+7",
+         "hinh":"",
+         "A":"0",
+         "B":"1",
+         "C":"2",
+         "D":"3",
+         "check":"A"
+      }
+   ]
+}

@@ -1,0 +1,114 @@
+{ 
+   "chuong1_bai_2":[ 
+      { 
+         "id":"1",
+         "yeucau":"Đáp án của phép tính này là:",
+         "chu":"5-2=?",
+         "hinh":"",
+         "A":"2",
+         "B":"6",
+         "C":"4",
+         "D":"3",
+         "check":"D"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Có bao nhiêu chiếc kèn trong hình ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb22.png",
+         "A":"4",
+         "B":"3",
+         "C":"2",
+         "D":"6",
+         "check":"A"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Có bao nhiêu chiếc kéo trong hình ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb23.png",
+         "A":"4",
+         "B":"2",
+         "C":"5",
+         "D":"1",
+         "check":"C"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Điền số thích hợp vào chỗ trống:",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb24.png",
+         "A":"3",
+         "B":"2",
+         "C":"6",
+         "D":"4",
+         "check":"D"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Bên nào lớn hơn ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb25.png",
+         "A":"Bên trái",
+         "B":"Bên phải",
+         "C":"",
+         "D":"",
+         "check":"B"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Bên nào lớn hơn ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb26.png",
+         "A":"Bên trái",
+         "B":"Bên phải",
+         "C":"",
+         "D":"",
+         "check":"B"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Điền số thích hợp vào chỗ trống:",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb27.png",
+         "A":"",
+         "B":"",
+         "C":"",
+         "D":"",
+         "check":"6"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Điền số thích hợp vào chỗ trống:",
+         "chu":"",
+         "hinh":"file:///android_asset/image/cb28.png",
+         "A":"",
+         "B":"",
+         "C":"",
+         "D":"",
+         "check":"7"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Điền dấu thích hợp vào .... :",
+         "chu":"6...7",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" =",
+         "D":" +",
+         "check":"A"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Điền dấu thích hợp vào .... :",
+         "chu":"2+4...5+1",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" +",
+         "D":" =",
+         "check":"D"
+      }
+   ]
+}

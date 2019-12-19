@@ -1,0 +1,114 @@
+{ 
+   "chuong3_bai_4":[ 
+      { 
+         "id":"1",
+         "yeucau":"Có tất cả bao nhiêu que tính ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c3b41.png",
+         "A":"14",
+         "B":"21",
+         "C":"16",
+         "D":"17",
+         "check":"A"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Có tất cả bao nhiêu que tính ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c3b42.png",
+         "A":"20",
+         "B":"19",
+         "C":"41",
+         "D":"21",
+         "check":"B"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Có tất cả bao nhiêu que tính ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c3b43.png",
+         "A":"22",
+         "B":"17",
+         "C":"32",
+         "D":"15",
+         "check":"B"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Điền số thích hợp vào chỗ trống:",
+         "chu":"14+...=19",
+         "hinh":"",
+         "A":"7",
+         "B":"5",
+         "C":"9",
+         "D":"11",
+         "check":"B"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Điền dấu thích hợp vào chỗ trống:",
+         "chu":"14+6...20",
+         "hinh":"",
+         "A":" =",
+         "B":"<",
+         "C":">",
+         "D":"/",
+         "check":"A"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"17-3=?",
+         "hinh":"",
+         "A":"14",
+         "B":"21",
+         "C":"16",
+         "D":"19",
+         "check":"A"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"20-18=?",
+         "hinh":"",
+         "A":"3",
+         "B":"1",
+         "C":"5",
+         "D":"2",
+         "check":"D"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Điền số thích hợp vào chỗ trống:",
+         "chu":"3+...+5=18",
+         "hinh":"",
+         "A":"5",
+         "B":"12",
+         "C":"8",
+         "D":"10",
+         "check":"D"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Điền dấu thích hợp vào chỗ trống:",
+         "chu":"20-10...7+5",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":"/",
+         "D":" =",
+         "check":"A"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Điền dấu thích hợp vào chỗ trống:",
+         "chu":"19-1...18+2-3",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" +",
+         "D":" =",
+         "check":"B"
+      }
+   ]
+}

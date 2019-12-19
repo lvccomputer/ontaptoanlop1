@@ -1,0 +1,114 @@
+{ 
+   "chuong3_bai_5":[ 
+      { 
+         "id":"1",
+         "yeucau":"Có tất cả bao nhiêu que tính ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c3b51.png",
+         "A":"20",
+         "B":"15",
+         "C":"10",
+         "D":"5",
+         "check":"A"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Có tất cả bao nhiêu que tính ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c3b52.png",
+         "A":"10",
+         "B":"15",
+         "C":"20",
+         "D":"25",
+         "check":"B"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"20+10=?",
+         "hinh":"",
+         "A":"10",
+         "B":"20",
+         "C":"30",
+         "D":"40",
+         "check":"C"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Điền số thích hợp vào chỗ trống:",
+         "chu":"1+9+...=20",
+         "hinh":"",
+         "A":"10",
+         "B":"20",
+         "C":"30",
+         "D":"40",
+         "check":"A"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Điền dấu thích hợp vào chỗ trống:",
+         "chu":"2 chục ... 30 đơn vị",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":"/",
+         "D":" =",
+         "check":"A"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"27-7=?",
+         "hinh":"",
+         "A":"2",
+         "B":"20",
+         "C":"3",
+         "D":"30",
+         "check":"B"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Có tất cả bao nhiêu que tính ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c3b57.png",
+         "A":"17",
+         "B":"18",
+         "C":"19",
+         "D":"20",
+         "check":"B"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Điền số thích hợp vào chỗ trống:",
+         "chu":"4+3-5+...=14",
+         "hinh":"",
+         "A":"11",
+         "B":"12",
+         "C":"13",
+         "D":"14",
+         "check":"B"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Điền dấu thích hợp vào chỗ trống:",
+         "chu":"5+6...8+3",
+         "hinh":"",
+         "A":" =",
+         "B":"<",
+         "C":">",
+         "D":"/",
+         "check":"A"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Điền dấu thích hợp vào chỗ trống:",
+         "chu":"30 đơn vị... 3 chục",
+         "hinh":"",
+         "A":" =",
+         "B":"<",
+         "C":">",
+         "D":"/",
+         "check":"A"
+      }
+   ]
+}

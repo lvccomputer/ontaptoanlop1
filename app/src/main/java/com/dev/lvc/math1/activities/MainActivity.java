@@ -4,9 +4,11 @@ import android.os.Bundle;
 
 import com.dev.lvc.math1.R;
 import com.dev.lvc.math1.fragments.HistoryFragment;
+import com.dev.lvc.math1.fragments.ListOfPracticeFragment;
+import com.dev.lvc.math1.fragments.PracticeFragment;
+import com.dev.lvc.math1.fragments.ListOfTestsFragment;
 import com.dev.lvc.math1.fragments.TestFragment;
 import com.dev.lvc.math1.fragments.TestingFragment;
-import com.dev.lvc.math1.fragments.PracticeFragment;
 
 import android.os.Handler;
 import android.view.View;
@@ -16,7 +18,6 @@ import androidx.core.view.GravityCompat;
 
 import android.view.MenuItem;
 
-import com.dev.lvc.math1.models.History;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         imgNav.setOnClickListener(this);
 
         layoutKiemTra.setOnClickListener(v -> showKiemTraFragment());
-        layoutLuyenTap.setOnClickListener(v -> showLuyenTapFragment());
+        layoutLuyenTap.setOnClickListener(v -> showPracFragment("Các phần luyện tập"));
         layoutHistory.setOnClickListener(v -> showHistoryFragment());
     }
 
@@ -93,12 +94,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    private void showLuyenTapFragment() {
-        if (getSupportFragmentManager().findFragmentByTag(PracticeFragment.class.getName()) == null) {
-            PracticeFragment fragment = new PracticeFragment();
-            addFragment(fragment, PracticeFragment.class.getName());
-        }
-    }
 
     private void showKiemTraFragment() {
         if (getSupportFragmentManager().findFragmentByTag(TestFragment.class.getName()) == null) {
@@ -119,10 +114,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             addFragment(historyFragment, HistoryFragment.class.getName());
         }
     }
+
+    public void showListOfPracticeFragment(String id,String title,String folder,String nameImage){
+        if (getSupportFragmentManager().findFragmentByTag(ListOfPracticeFragment.class.getName())==null){
+            ListOfPracticeFragment fragment = new ListOfPracticeFragment();
+            fragment.setId(id);
+            fragment.setTitleToolBar(title);
+            fragment.setFolder(folder);
+            fragment.setNameImage(nameImage);
+            addFragment(fragment,ListOfPracticeFragment.class.getName());
+        }
+
+    }
+    public void showPracFragment(String title){
+        if (getSupportFragmentManager().findFragmentByTag(PracticeFragment.class.getName()) ==null){
+            PracticeFragment fragment = new PracticeFragment();
+            fragment.setTitle(title);
+            addFragment(fragment,PracticeFragment.class.getName());
+        }
+    }
+
+    public void showListOfEasyTests() {
+        if (getSupportFragmentManager().findFragmentByTag(ListOfTestsFragment.class.getName()) == null) {
+            ListOfTestsFragment fragment = new ListOfTestsFragment();
+            addFragment(fragment, ListOfTestsFragment.class.getName());
+        }
+    }
+
+    public void showListOfDifficultTests() {
+        if (getSupportFragmentManager().findFragmentByTag(ListOfTestsFragment.class.getName())==null){
+            ListOfTestsFragment fragment = new ListOfTestsFragment();
+            addFragment(fragment,ListOfTestsFragment.class.getName());
+        }
+    }
     private void addFragment(@NonNull Fragment fragment, @NonNull String fragmentTags) {
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(fragmentTags)
-                .setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_en, R.anim.pop_ex)
+                .setCustomAnimations(R.anim.enter, R.anim.exit,R.anim.enter,R.anim.exit)
                 .add(R.id.drawer_layout, fragment, fragmentTags)
                 .commitAllowingStateLoss();
     }
@@ -164,4 +192,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+
 }

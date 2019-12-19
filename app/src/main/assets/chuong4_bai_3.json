@@ -1,0 +1,114 @@
+{ 
+   "chuong4_bai_3":[ 
+      { 
+         "id":"1",
+         "yeucau":"Đồng hồ đang chỉ mấy giờ ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c4b31.png",
+         "A":"4",
+         "B":"5",
+         "C":"6",
+         "D":"7",
+         "check":"C"
+      },
+      { 
+         "id":"2",
+         "yeucau":"Đáp án của phép tính sau là:",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c4b32.png",
+         "A":"44",
+         "B":"55",
+         "C":"66",
+         "D":"77",
+         "check":"B"
+      },
+      { 
+         "id":"3",
+         "yeucau":"Có tất cả bao nhiêu que tính ?",
+         "chu":"",
+         "hinh":"file:///android_asset/image/c4b33.png",
+         "A":"42",
+         "B":"43",
+         "C":"44",
+         "D":"45",
+         "check":"A"
+      },
+      { 
+         "id":"4",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"24+76",
+         "hinh":"",
+         "A":"100",
+         "B":"99",
+         "C":"101",
+         "D":"43",
+         "check":"A"
+      },
+      { 
+         "id":"5",
+         "yeucau":"Điền số thích hợp vào chỗ ...:",
+         "chu":"6...=23+44",
+         "hinh":"",
+         "A":"5",
+         "B":"6",
+         "C":"7",
+         "D":"8",
+         "check":"A"
+      },
+      { 
+         "id":"6",
+         "yeucau":"Số liền Trước của 41 là:",
+         "chu":"40-->41",
+         "hinh":"",
+         "A":"38",
+         "B":"39",
+         "C":"40",
+         "D":"41",
+         "check":"C"
+      },
+      { 
+         "id":"7",
+         "yeucau":"Điền dấu thích hợp vào chỗ ...",
+         "chu":"56+1...40+10",
+         "hinh":"",
+         "A":"<",
+         "B":">",
+         "C":" +",
+         "D":" =",
+         "check":"B"
+      },
+      { 
+         "id":"8",
+         "yeucau":"Đáp án của phép tính là:",
+         "chu":"6+7+8=?",
+         "hinh":"",
+         "A":"20",
+         "B":"21",
+         "C":"22",
+         "D":"23",
+         "check":"B"
+      },
+      { 
+         "id":"9",
+         "yeucau":"Điền số thích hợp vào chỗ ...:",
+         "chu":"5...+31=87",
+         "hinh":"",
+         "A":"5",
+         "B":"6",
+         "C":"7",
+         "D":"8",
+         "check":"B"
+      },
+      { 
+         "id":"10",
+         "yeucau":"Số liền Trước của 20 là:",
+         "chu":"",
+         "hinh":"",
+         "A":"18",
+         "B":"19",
+         "C":"20",
+         "D":"21",
+         "check":"B"
+      }
+   ]
+}
