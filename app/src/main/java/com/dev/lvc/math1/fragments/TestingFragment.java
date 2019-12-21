@@ -32,6 +32,6 @@ public class TestingFragment extends BaseFragment{
     }
     @Override
     protected int getIdResource() {
-        return R.layout.fragment_testing;
+        return R.layout.item_question_practice_view;
     }
 }

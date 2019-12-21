@@ -51,13 +51,4 @@
             android:padding="22dp"
             android:src="@drawable/ic_right" />
     </RelativeLayout>
-
-    <FrameLayout
-        android:id="@+id/clickItemLuyenTap"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:focusable="true">
-
-    </FrameLayout>
 </androidx.cardview.widget.CardView>

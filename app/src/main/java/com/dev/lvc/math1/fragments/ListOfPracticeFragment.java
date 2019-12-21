@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.R;
 import com.dev.lvc.math1.Utils;
-import com.dev.lvc.math1.adapters.ListOfPracticeAdapter;
+import com.dev.lvc.math1.adapters.practice.ListOfPracticeAdapter;
 import com.dev.lvc.math1.models.Practice;
 
 import org.json.JSONArray;
@@ -38,6 +38,7 @@ public class ListOfPracticeFragment extends BaseFragment {
     private String id;
 
     private String folder;
+
     private String nameImage;
 
     public void setFolder(String folder) {
@@ -75,8 +76,11 @@ public class ListOfPracticeFragment extends BaseFragment {
         listOfPracticeAdapter = new ListOfPracticeAdapter(practiceArrayList,mainActivity);
         rcvListOfPractice.setLayoutManager(new LinearLayoutManager(mainActivity));
         rcvListOfPractice.setAdapter(listOfPracticeAdapter);
-        listOfPracticeAdapter.setOnClickItem((position, data) -> {
+        Log.e(TAG, "1: " );
 
+        listOfPracticeAdapter.setOnClickPrac((position, practice) -> {
+            Log.e(TAG, "initView: " );
+            mainActivity.showPracticeQuestionFragment(id, String.valueOf(practice.getIdPractice()));
         });
 
     }
@@ -101,6 +105,6 @@ public class ListOfPracticeFragment extends BaseFragment {
 
     @Override
     protected int getIdResource() {
-        return R.layout.fragment_try_hard;
+        return R.layout.fragment_list_of_practice;
     }
 }

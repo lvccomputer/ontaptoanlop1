@@ -7,6 +7,7 @@ import com.dev.lvc.math1.fragments.HistoryFragment;
 import com.dev.lvc.math1.fragments.ListOfPracticeFragment;
 import com.dev.lvc.math1.fragments.PracticeFragment;
 import com.dev.lvc.math1.fragments.ListOfTestsFragment;
+import com.dev.lvc.math1.fragments.PracticeQuestionFragment;
 import com.dev.lvc.math1.fragments.TestFragment;
 import com.dev.lvc.math1.fragments.TestingFragment;
 
@@ -147,6 +148,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             addFragment(fragment,ListOfTestsFragment.class.getName());
         }
     }
+    public void showPracticeQuestionFragment(String id, String practiceId){
+        if (getSupportFragmentManager().findFragmentByTag(PracticeQuestionFragment.class.getName())==null){
+            PracticeQuestionFragment fragment = new PracticeQuestionFragment();
+            fragment.setId(id);
+            fragment.setPracticeId(practiceId);
+            addFragment(fragment,PracticeQuestionFragment.class.getName());
+        }
+    }
     private void addFragment(@NonNull Fragment fragment, @NonNull String fragmentTags) {
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(fragmentTags)
@@ -154,8 +163,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .add(R.id.drawer_layout, fragment, fragmentTags)
                 .commitAllowingStateLoss();
     }
-
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

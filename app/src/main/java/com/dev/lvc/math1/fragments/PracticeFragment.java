@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.R;
 import com.dev.lvc.math1.Utils;
-import com.dev.lvc.math1.adapters.PracticeAdapter;
+import com.dev.lvc.math1.adapters.practice.PracticeAdapter;
 import com.dev.lvc.math1.models.Practice;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -61,6 +61,7 @@ public class PracticeFragment extends BaseFragment {
         rcvLuyenTap.setLayoutManager(new GridLayoutManager(mainActivity,2));
         rcvLuyenTap.setAdapter(practiceAdapter);
         practiceAdapter.setOnClickItemPractice((position, practice) -> {
+            Log.e(TAG, "initView: " );
             mainActivity.showListOfPracticeFragment(String.valueOf(practice.getIdPractice()),practice.getTitlePractice(),practice.getFolderImage(),practice.getIcon());
         });
 
@@ -99,7 +100,7 @@ public class PracticeFragment extends BaseFragment {
 
     @Override
     protected int getIdResource() {
-        return R.layout.fragment_try_hard;
+        return R.layout.fragment_list_of_practice;
     }
 
     public void setTitle(String title) {

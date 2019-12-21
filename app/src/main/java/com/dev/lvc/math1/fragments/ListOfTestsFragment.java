@@ -6,11 +6,10 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.R;
-import com.dev.lvc.math1.adapters.TestAdapter;
+import com.dev.lvc.math1.adapters.test.TestAdapter;
 import com.dev.lvc.math1.models.Data;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

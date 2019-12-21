@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.R;
-import com.dev.lvc.math1.adapters.HistoryAdapter;
+import com.dev.lvc.math1.adapters.history.HistoryAdapter;
 import com.dev.lvc.math1.models.History;
 
 import java.util.ArrayList;
