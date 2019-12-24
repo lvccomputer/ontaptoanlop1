@@ -2,7 +2,9 @@ package com.dev.lvc.math1.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -47,6 +49,7 @@ public class PointerDialog extends Dialog {
         tvNext = findViewById(R.id.tvNext);
         pointer = findViewById(R.id.tvPointer);
         pointer.setText(point+"/10");
+        soundHappy(Integer.parseInt(point));
         tvReview.setOnClickListener(v -> {
             dismiss();
             if (pointerListener!=null)pointerListener.onReview();
@@ -63,6 +66,23 @@ public class PointerDialog extends Dialog {
 
     }
 
+    private void soundHappy(int point){
+        MediaPlayer mediaPlayer;
+        Log.e("cuong", "soundHappy: " );
+        if (point >=9){
+            mediaPlayer = MediaPlayer.create(context,R.raw.chucmung4);
+            mediaPlayer.start();
+        }else if (point >= 7){
+            mediaPlayer = MediaPlayer.create(context,R.raw.chucmung3);
+            mediaPlayer.start();
+        }else if (point>=5){
+            mediaPlayer = MediaPlayer.create(context,R.raw.chucmung2);
+            mediaPlayer.start();
+        }else {
+            mediaPlayer = MediaPlayer.create(context,R.raw.chucmung1);
+            mediaPlayer.start();
+        }
+    }
     public interface PointerListener{
         void onReview();
         void onNext();
