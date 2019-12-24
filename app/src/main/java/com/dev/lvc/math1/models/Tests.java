@@ -1,12 +1,12 @@
 package com.dev.lvc.math1.models;
 
-public class Data {
+public class Tests {
 
     private int icon;
 
     private String name;
 
-    public Data(int icon, String name) {
+    public Tests(int icon, String name) {
         this.icon = icon;
         this.name = name;
     }

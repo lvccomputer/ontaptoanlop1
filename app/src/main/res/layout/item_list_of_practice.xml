@@ -51,4 +51,13 @@
             android:padding="22dp"
             android:src="@drawable/ic_right" />
     </RelativeLayout>
+    <FrameLayout
+        android:id="@+id/clickView"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
 </androidx.cardview.widget.CardView>

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.R;
-import com.dev.lvc.math1.Utils;
+import com.dev.lvc.math1.utils.JsonUtils;
 import com.dev.lvc.math1.models.Practice;
 import com.squareup.picasso.Picasso;
 
@@ -34,7 +34,7 @@ public class PracticeAdapter extends RecyclerView.Adapter<PracticeAdapter.ItemTr
     @Override
     public ItemTrainingAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.item_list_training, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_list_practices, parent, false);
 
         return new ItemTrainingAdapter(view);
     }
@@ -42,7 +42,7 @@ public class PracticeAdapter extends RecyclerView.Adapter<PracticeAdapter.ItemTr
     @Override
     public void onBindViewHolder(@NonNull ItemTrainingAdapter holder, int position) {
         Practice practice = practiceArrayList.get(position);
-        Picasso.get().load(Utils.URI + practice.getFolderImage() + "/" + practice.getIcon()).into(holder.imgIcon);
+        Picasso.get().load(JsonUtils.URI + practice.getFolderImage() + "/" + practice.getIcon()).into(holder.imgIcon);
         holder.tvTitleTrain.setText(practice.getTitlePractice());
     }
 
@@ -55,10 +55,12 @@ public class PracticeAdapter extends RecyclerView.Adapter<PracticeAdapter.ItemTr
         private ImageView imgIcon;
         private TextView tvTitleTrain;
 
+        private View view;
         public ItemTrainingAdapter(@NonNull View itemView) {
             super(itemView);
             imgIcon = itemView.findViewById(R.id.imgTraining);
             tvTitleTrain = itemView.findViewById(R.id.tvTitleTraining);
+            view = itemView.findViewById(R.id.itemView);
 
             itemView.getLayoutParams().height = (int) (context.getResources().getDisplayMetrics().heightPixels / 3);
             itemView.getLayoutParams().width = (int) (context.getResources().getDisplayMetrics().widthPixels / 2);

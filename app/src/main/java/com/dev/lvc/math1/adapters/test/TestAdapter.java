@@ -13,19 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.OnClickItemKiemTra;
 import com.dev.lvc.math1.R;
-import com.dev.lvc.math1.models.Data;
+import com.dev.lvc.math1.models.Tests;
 
 import java.util.ArrayList;
 
 public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ItemKiemTraViewHolder> {
 
-    private ArrayList<Data> arrayList;
+    private ArrayList<Tests> arrayList;
 
     private Context context;
 
     private OnClickItemKiemTra onClickItemKiemTra;
 
-    public TestAdapter(ArrayList<Data> arrayList, Context context) {
+    public TestAdapter(ArrayList<Tests> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
@@ -40,10 +40,10 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ItemKiemTraVie
 
     @Override
     public void onBindViewHolder(@NonNull ItemKiemTraViewHolder holder, int position) {
-        Data data = arrayList.get(position);
+        Tests tests = arrayList.get(position);
 
-        holder.imgIconOfTests.setImageResource(data.getIcon());
-        holder.tvNameOfTests.setText(data.getName());
+        holder.imgIconOfTests.setImageResource(tests.getIcon());
+        holder.tvNameOfTests.setText(tests.getName());
 
     }
 

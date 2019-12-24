@@ -1,6 +1,8 @@
 package com.dev.lvc.math1.fragments;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
 import com.dev.lvc.math1.R;
-import com.dev.lvc.math1.Utils;
+import com.dev.lvc.math1.utils.JsonUtils;
 import com.dev.lvc.math1.adapters.practice.QuestionPagerAdapter;
 
 public class PracticeQuestionFragment extends BaseFragment {
@@ -20,6 +22,7 @@ public class PracticeQuestionFragment extends BaseFragment {
     private TextView tvThreadName;
 
     private ImageView nextQuestion, previousQuestion;
+
     private ViewPager pagerQuestion;
 
     private String id;
@@ -39,6 +42,7 @@ public class PracticeQuestionFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         init();
+        initView();
     }
 
     private void init() {
@@ -48,18 +52,54 @@ public class PracticeQuestionFragment extends BaseFragment {
         nextQuestion = view.findViewById(R.id.nextQuestion);
         previousQuestion = view.findViewById(R.id.previousQuestion);
 
-        pagerQuestion.setAdapter(new QuestionPagerAdapter(Utils.loadPracticeJsonData(mainActivity, id, practiceId), mainActivity));
+
+    }
+
+    private void initView(){
+        QuestionPagerAdapter adapter= new QuestionPagerAdapter(JsonUtils.loadPracticeJsonData(mainActivity, id, practiceId), mainActivity);
+        pagerQuestion.setAdapter(adapter);
+        int limit = (adapter.getCount() > 1 ? adapter.getCount() - 1 : 1);
+
+        pagerQuestion.setOffscreenPageLimit(limit);
+
         nextQuestion.setOnClickListener(v -> {
+            MediaPlayer mediaPlayer = MediaPlayer.create(mainActivity,R.raw.click);
+            mediaPlayer.start();
+            animate(nextQuestion);
             pagerQuestion.setCurrentItem(pagerQuestion.getCurrentItem()+1);
         });
         previousQuestion.setOnClickListener(v -> {
+            MediaPlayer mediaPlayer = MediaPlayer.create(mainActivity,R.raw.click);
+            mediaPlayer.start();
+            animate(previousQuestion);
             pagerQuestion.setCurrentItem(pagerQuestion.getCurrentItem()-1);
 
         });
         tvThreadName.setText("Bài " + practiceId);
+
+        imgBack.setOnClickListener(v -> {
+            Log.e("cuong", "click" );
+            mainActivity.onBackPressed();
+        });
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        mainActivity.setUserInterface(view.findViewById(R.id.practiceQuestion));
+    }
+    private void animate(ImageView imageView) {
+        imageView.animate()
+                .scaleY(0.9f)
+                .scaleX(0.9f)
+                .setDuration(50)
+                .withEndAction(() -> imageView.animate()
+                        .scaleY(1)
+                        .scaleX(1)
+                        .setDuration(50)
+                        .start())
+                .start();
+    }
     @Override
     protected int getIdResource() {
         return R.layout.fragment_practice_question;

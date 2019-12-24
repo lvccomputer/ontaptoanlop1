@@ -6,10 +6,8 @@ public class History {
     private String time;
     private String result;
 
-    public History(String lesson, String time, String result) {
-        this.lesson = lesson;
-        this.time = time;
-        this.result = result;
+    public History() {
+
     }
 
     public String getLesson() {

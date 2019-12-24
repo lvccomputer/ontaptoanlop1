@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.R;
 import com.dev.lvc.math1.adapters.test.TestAdapter;
-import com.dev.lvc.math1.models.Data;
+import com.dev.lvc.math1.models.Tests;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class ListOfTestsFragment extends BaseFragment {
 
     private TestAdapter kiemTraTestAdapter;
 
-    private ArrayList<Data> dataArrayList;
+    private ArrayList<Tests> testsArrayList;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class ListOfTestsFragment extends BaseFragment {
     }
 
     private void initID(){
-        dataArrayList = new ArrayList<>();
+        testsArrayList = new ArrayList<>();
         rcvKiemTra = view.findViewById(R.id.rcvExams);
         floatBack = view.findViewById(R.id.floatBack);
 
@@ -41,20 +41,17 @@ public class ListOfTestsFragment extends BaseFragment {
     private void initView(){
         floatBack.setOnClickListener(v -> mainActivity.onBackPressed());
 
-        dataArrayList.add(new Data(R.drawable.ic_test_list,"Bài 1"));
-        dataArrayList.add(new Data(R.drawable.ic_test_list,"Bài 2"));
-        dataArrayList.add(new Data(R.drawable.ic_test_list,"Bài 3"));
-        dataArrayList.add(new Data(R.drawable.ic_test_list,"Bài 4"));
-        dataArrayList.add(new Data(R.drawable.ic_test_list,"Bài 5"));
-        dataArrayList.add(new Data(R.drawable.ic_test_list,"Bài 6"));
-        dataArrayList.add(new Data(R.drawable.ic_test_list,"Bài 7"));
-        dataArrayList.add(new Data(R.drawable.ic_test_list,"Bài 8"));
+        testsArrayList.add(new Tests(R.drawable.ic_test_list,"Bài 1"));
+        testsArrayList.add(new Tests(R.drawable.ic_test_list,"Bài 2"));
+        testsArrayList.add(new Tests(R.drawable.ic_test_list,"Bài 3"));
+        testsArrayList.add(new Tests(R.drawable.ic_test_list,"Bài 4"));
+        testsArrayList.add(new Tests(R.drawable.ic_test_list,"Bài 5"));
 
-        kiemTraTestAdapter = new TestAdapter(dataArrayList,mainActivity);
+        kiemTraTestAdapter = new TestAdapter(testsArrayList,mainActivity);
         rcvKiemTra.setLayoutManager(new GridLayoutManager(mainActivity,4));
         rcvKiemTra.setAdapter(kiemTraTestAdapter);
         kiemTraTestAdapter.setOnClickItemKiemTra(position ->{
-            mainActivity.showBaiLamFragment();
+            mainActivity.showBaiLamFragment(String.valueOf(position+1));
         });
 
     }

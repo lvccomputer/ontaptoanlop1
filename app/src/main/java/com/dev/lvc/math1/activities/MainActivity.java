@@ -1,5 +1,7 @@
 package com.dev.lvc.math1.activities;
 
+import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.dev.lvc.math1.R;
@@ -8,10 +10,9 @@ import com.dev.lvc.math1.fragments.ListOfPracticeFragment;
 import com.dev.lvc.math1.fragments.PracticeFragment;
 import com.dev.lvc.math1.fragments.ListOfTestsFragment;
 import com.dev.lvc.math1.fragments.PracticeQuestionFragment;
-import com.dev.lvc.math1.fragments.TestFragment;
-import com.dev.lvc.math1.fragments.TestingFragment;
 
 import android.os.Handler;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,8 @@ import androidx.core.view.GravityCompat;
 
 import android.view.MenuItem;
 
+import com.dev.lvc.math1.fragments.TestsQuestionFragment;
+import com.dev.lvc.math1.utils.SqliteUtils;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -26,6 +29,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -42,15 +48,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private RelativeLayout layoutKiemTra,layoutHistory;
 
+    public SQLiteDatabase historySqlite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        historySqlite = SqliteUtils.readDataBaseFromAssets("history.db",this);
         initID();
         initView();
-
-
     }
 
     private void initID() {
@@ -68,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setItemIconTintList(null);
         imgNav.setOnClickListener(this);
 
-        layoutKiemTra.setOnClickListener(v -> showKiemTraFragment());
+        layoutKiemTra.setOnClickListener(v -> showListOfTests());
         layoutLuyenTap.setOnClickListener(v -> showPracFragment("Các phần luyện tập"));
         layoutHistory.setOnClickListener(v -> showHistoryFragment());
     }
@@ -96,17 +102,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    private void showKiemTraFragment() {
-        if (getSupportFragmentManager().findFragmentByTag(TestFragment.class.getName()) == null) {
-            TestFragment fragment = new TestFragment();
-            addFragment(fragment, TestFragment.class.getName());
-        }
-    }
 
-    public void showBaiLamFragment() {
-        if (getSupportFragmentManager().findFragmentByTag(TestingFragment.class.getName()) == null) {
-            TestingFragment fragment = new TestingFragment();
-            addFragment(fragment, TestingFragment.class.getName());
+    public void showBaiLamFragment(String id) {
+        if (getSupportFragmentManager().findFragmentByTag(TestsQuestionFragment.class.getName()) ==null){
+            TestsQuestionFragment fragment = new TestsQuestionFragment();
+            fragment.setId(id);
+            addFragment(fragment,TestsQuestionFragment.class.getName());
         }
     }
     private void showHistoryFragment() {
@@ -135,19 +136,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    public void showListOfEasyTests() {
+    public void showListOfTests() {
         if (getSupportFragmentManager().findFragmentByTag(ListOfTestsFragment.class.getName()) == null) {
             ListOfTestsFragment fragment = new ListOfTestsFragment();
             addFragment(fragment, ListOfTestsFragment.class.getName());
         }
     }
 
-    public void showListOfDifficultTests() {
-        if (getSupportFragmentManager().findFragmentByTag(ListOfTestsFragment.class.getName())==null){
-            ListOfTestsFragment fragment = new ListOfTestsFragment();
-            addFragment(fragment,ListOfTestsFragment.class.getName());
-        }
-    }
     public void showPracticeQuestionFragment(String id, String practiceId){
         if (getSupportFragmentManager().findFragmentByTag(PracticeQuestionFragment.class.getName())==null){
             PracticeQuestionFragment fragment = new PracticeQuestionFragment();
@@ -163,7 +158,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .add(R.id.drawer_layout, fragment, fragmentTags)
                 .commitAllowingStateLoss();
     }
+    public static void hideKeyBoard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE );
+        if (inputMethodManager != null && activity.getCurrentFocus() != null) {
+            inputMethodManager.hideSoftInputFromWindow(
+                    activity.getCurrentFocus().getWindowToken(), 0 );
+        }
+    }
 
+    public void setUserInterface(View view) {
+
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener( new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideKeyBoard( MainActivity.this );
+                    return false;
+                }
+            } );
+        }
+
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt( i );
+                setUserInterface( innerView );
+            }
+        }
+    }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -172,10 +194,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_rate) {
-
-        } else if (id == R.id.nav_share) {
-
+        } else if (id == R.id.nav_practice) {
+            showPracFragment("Các phần luyện tập");
+        } else if (id == R.id.nav_tests) {
+            showListOfTests();
+        }else if (id ==R.id.nav_history){
+            showHistoryFragment();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -200,4 +224,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        historySqlite.close();
+    }
 }

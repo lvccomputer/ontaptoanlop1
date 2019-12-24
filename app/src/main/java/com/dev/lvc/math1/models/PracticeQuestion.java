@@ -2,7 +2,7 @@ package com.dev.lvc.math1.models;
 
 import java.util.ArrayList;
 
-public class ItemQuestionPractice {
+public class PracticeQuestion {
     private int id;
     private String request;
     private String requestText;
@@ -11,10 +11,8 @@ public class ItemQuestionPractice {
 
     private String result;
 
-    public ItemQuestionPractice() {
+    public PracticeQuestion() {
     }
-
-    private ArrayList<Answer> answer;
 
     public int getId() {
         return id;
@@ -56,14 +54,6 @@ public class ItemQuestionPractice {
         this.result = result;
     }
 
-    public ArrayList<Answer> getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(ArrayList<Answer> answer) {
-        this.answer = answer;
-    }
-
     public String getA() {
         return a;
     }
@@ -95,4 +85,5 @@ public class ItemQuestionPractice {
     public void setD(String d) {
         this.d = d;
     }
+
 }

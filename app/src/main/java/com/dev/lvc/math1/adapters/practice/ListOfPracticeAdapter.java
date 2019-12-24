@@ -1,7 +1,6 @@
 package com.dev.lvc.math1.adapters.practice;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.R;
-import com.dev.lvc.math1.Utils;
+import com.dev.lvc.math1.utils.JsonUtils;
 import com.dev.lvc.math1.models.Practice;
 import com.squareup.picasso.Picasso;
 
@@ -41,11 +40,11 @@ public class ListOfPracticeAdapter extends RecyclerView.Adapter<ListOfPracticeAd
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         Practice practice = practiceArrayList.get(position);
-        Picasso.get().load(Utils.URI + practice.getFolderImage() + "/" + practice.getIcon()).into(holder.imgIcon);
+        Picasso.get().load(JsonUtils.URI + practice.getFolderImage() + "/" + practice.getIcon()).into(holder.imgIcon);
         holder.tvTitle.setText(practice.getTitlePractice());
-        holder.itemView.setOnClickListener(v -> {
-                if (onClickPrac != null)
-                    onClickPrac.setOnClickItem(position, practiceArrayList.get(position));
+        holder.view.setOnClickListener(v -> {
+            if (onClickPrac != null)
+                onClickPrac.setOnClickItem(position, practiceArrayList.get(position));
         });
     }
 
@@ -58,11 +57,13 @@ public class ListOfPracticeAdapter extends RecyclerView.Adapter<ListOfPracticeAd
         private ImageView imgIcon;
         private TextView tvTitle;
 
+        private View view;
+
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             imgIcon = itemView.findViewById(R.id.imgIcon);
             tvTitle = itemView.findViewById(R.id.tvTitlePractice);
-
+            view = itemView.findViewById(R.id.clickView);
         }
     }
 

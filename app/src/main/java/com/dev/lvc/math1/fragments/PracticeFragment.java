@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.R;
-import com.dev.lvc.math1.Utils;
+import com.dev.lvc.math1.utils.JsonUtils;
 import com.dev.lvc.math1.adapters.practice.PracticeAdapter;
 import com.dev.lvc.math1.models.Practice;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -69,9 +69,9 @@ public class PracticeFragment extends BaseFragment {
 
 
     private void loadPracticeJsonData() {
-
+        practiceArrayList.clear();
         try {
-            JSONObject practiceObject = new JSONObject(Utils.loadJSONFromAssets(mainActivity, "practice.json"));
+            JSONObject practiceObject = new JSONObject(JsonUtils.loadJSONFromAssets(mainActivity, "practice.json"));
             String folderImage = practiceObject.getString("image");
             Log.e(TAG, "loadPracticeJsonData: "+folderImage );
             JSONArray practiceJsonArray = practiceObject.getJSONArray("list");

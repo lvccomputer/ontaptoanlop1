@@ -11,9 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dev.lvc.math1.R;
-import com.dev.lvc.math1.Utils;
+import com.dev.lvc.math1.utils.JsonUtils;
 import com.dev.lvc.math1.adapters.practice.ListOfPracticeAdapter;
 import com.dev.lvc.math1.models.Practice;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,6 +25,8 @@ import java.util.ArrayList;
 public class ListOfPracticeFragment extends BaseFragment {
 
     private static final String TAG ="cuong";
+
+    private FloatingActionButton floatBack;
 
     private RecyclerView rcvListOfPractice;
 
@@ -69,6 +72,8 @@ public class ListOfPracticeFragment extends BaseFragment {
         tvTitle = view.findViewById(R.id.tvTitle);
         practiceArrayList = new ArrayList<>();
         rcvListOfPractice = view.findViewById(R.id.rcvLuyenTap);
+        floatBack = view.findViewById(R.id.floatBack);
+        floatBack.setOnClickListener(v -> mainActivity.onBackPressed());
     }
 
     private void initView(){
@@ -86,7 +91,7 @@ public class ListOfPracticeFragment extends BaseFragment {
     }
     private void loadDataFromJson(){
         try {
-            JSONObject practiceObject = new JSONObject(Utils.loadJSONFromAssets(mainActivity, "chapter.json"));
+            JSONObject practiceObject = new JSONObject(JsonUtils.loadJSONFromAssets(mainActivity, "chapter.json"));
             JSONArray practiceJsonArray = practiceObject.getJSONArray("chapter_"+ id);
             for (int index = 0; index < practiceJsonArray.length(); index++) {
                 JSONObject prac_inside = practiceJsonArray.getJSONObject(index);

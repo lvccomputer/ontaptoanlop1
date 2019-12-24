@@ -9,25 +9,25 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.dev.lvc.math1.R;
-import com.dev.lvc.math1.models.ItemQuestionPractice;
-import com.dev.lvc.math1.views.QuestionPracticeView;
+import com.dev.lvc.math1.models.PracticeQuestion;
+import com.dev.lvc.math1.views.PracticeQuestionView;
 
 import java.util.ArrayList;
 
 public class QuestionPagerAdapter extends PagerAdapter {
 
-    private ArrayList<ItemQuestionPractice> itemQuestionPractices;
+    private ArrayList<PracticeQuestion> practiceQuestions;
 
     private Context context;
 
-    public QuestionPagerAdapter(ArrayList<ItemQuestionPractice> itemQuestionPractices, Context context) {
-        this.itemQuestionPractices = itemQuestionPractices;
+    public QuestionPagerAdapter(ArrayList<PracticeQuestion> practiceQuestions, Context context) {
+        this.practiceQuestions = practiceQuestions;
         this.context = context;
     }
 
     @Override
     public int getCount() {
-        return itemQuestionPractices.size();
+        return practiceQuestions.size();
     }
 
     @Override
@@ -40,8 +40,8 @@ public class QuestionPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        QuestionPracticeView view = (QuestionPracticeView) inflater.inflate(R.layout.item_pager_question,container,false);
-        view.setItemQuestionPractice(itemQuestionPractices.get(position));
+        PracticeQuestionView view = (PracticeQuestionView) inflater.inflate(R.layout.item_pager_question,container,false);
+        view.setItemQuestionPractice(practiceQuestions.get(position));
         view.initData();
         container.addView(view);
         return view;
