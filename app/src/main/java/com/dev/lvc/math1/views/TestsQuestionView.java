@@ -1,12 +1,14 @@
 package com.dev.lvc.math1.views;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Vibrator;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -28,18 +30,18 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.dev.lvc.math1.App;
 import com.dev.lvc.math1.R;
+import com.dev.lvc.math1.utils.AnswerArrayCache;
 import com.dev.lvc.math1.utils.SoundUtils;
 import com.dev.lvc.math1.activities.MainActivity;
 import com.dev.lvc.math1.models.TestsQuestion;
 
 public class TestsQuestionView extends FrameLayout {
 
-
     private EditText edtAnswer;
 
     private TextView tvRequest, tvQuestion;
 
-    private RelativeLayout writeAnswer;
+    private RelativeLayout writeAnswer,lnWrite;
 
     private RelativeLayout lnA, lnB, lnC, lnD;
 
@@ -58,6 +60,8 @@ public class TestsQuestionView extends FrameLayout {
     private ImageView imgQuestion;
 
     private Callback callback;
+
+    private boolean isReview = false;
 
     public void setCallback(Callback callback) {
         this.callback = callback;
@@ -79,6 +83,7 @@ public class TestsQuestionView extends FrameLayout {
         tvRequest = findViewById(R.id.tvRequest);
         edtAnswer = findViewById(R.id.edtWriteAnswer);
         writeAnswer = findViewById(R.id.writeAnswer);
+        lnWrite = findViewById(R.id.lnWrite);
 
         lnA = findViewById(R.id.lnA);
         lnB = findViewById(R.id.lnB);
@@ -106,7 +111,13 @@ public class TestsQuestionView extends FrameLayout {
 
     }
 
-    @SuppressLint("SetTextI18n")
+    public void setReview(boolean review) {
+        if (review) {
+            reView();
+        }
+
+    }
+
     public void initData() {
         tvRequest.setText("Câu " + testsQuestion.getId() + ": " + testsQuestion.getRequest());
         Glide.with(getContext())
@@ -142,41 +153,120 @@ public class TestsQuestionView extends FrameLayout {
             lnC.setVisibility(GONE);
             lnD.setVisibility(GONE);
         }
-        btnCheckAnswer.setText("Đồng ý");
+        edtAnswer.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        if (btnCheckAnswer.getText().toString().equals("Đồng ý")){
-            btnCheckAnswer.setOnClickListener(v -> {
-                btnCheckAnswer.setText("Sửa");
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                callback.updateAnswer(s.toString(), testsQuestion.getId());
+                AnswerArrayCache.array[testsQuestion.getId()-1]=s.toString();
+
+            }
+        });
+
+        btnCheckAnswer.setOnClickListener(v -> {
+            if (btnCheckAnswer.getText().toString().equals("Đồng ý")) {
                 MainActivity.hideKeyBoard((Activity) getContext());
-                callback.updateAnswer(edtAnswer.getText().toString(),testsQuestion.getId());
-            });
-        }else {
-            btnCheckAnswer.setOnClickListener(v -> {
+            } else {
                 edtAnswer.requestFocus();
                 InputMethodManager imm = (InputMethodManager) App.getApp().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.showSoftInput(edtAnswer, InputMethodManager.SHOW_IMPLICIT);
                 btnCheckAnswer.setText("Đồng ý");
-            });
-
-        }
+            }
+        });
 
         lnA.setOnClickListener(v -> {
+            animate(lnA);
+            AnswerArrayCache.array[testsQuestion.getId() - 1] = tvAnswerA.getText().toString();
             selectA();
         });
         lnB.setOnClickListener(v -> {
+            animate(lnB);
+            AnswerArrayCache.array[testsQuestion.getId() - 1] = tvAnswerB.getText().toString();
             selectB();
 
         });
         lnC.setOnClickListener(v -> {
+            animate(lnC);
+            AnswerArrayCache.array[testsQuestion.getId() - 1] = tvAnswerC.getText().toString();
             selectC();
 
         });
         lnD.setOnClickListener(v -> {
+            animate(lnD);
+            AnswerArrayCache.array[testsQuestion.getId() - 1] = tvAnswerD.getText().toString();
             selectD();
         });
     }
 
-    private void animate(LinearLayout lnAnswer) {
+    private void reView() {
+        lnA.setEnabled(false);
+        lnB.setEnabled(false);
+        lnC.setEnabled(false);
+        lnD.setEnabled(false);
+        edtAnswer.setEnabled(false);
+        btnCheckAnswer.setVisibility(GONE);
+
+        String AnswerUser = AnswerArrayCache.array[testsQuestion.getId()-1];
+        if (AnswerUser!=null){
+            if (testsQuestion.getA().equals("") && testsQuestion.getB().equals("") && testsQuestion.getC().equals("")
+                    && testsQuestion.getD().equals("")) {
+                if (AnswerUser.equals(testsQuestion.getResult())){
+                    edtAnswer.setText(AnswerArrayCache.array[testsQuestion.getId()-1]);
+                    lnWrite.setBackgroundResource(R.drawable.bg_true);
+                }else {
+                    edtAnswer.setText(AnswerArrayCache.array[testsQuestion.getId()-1]);
+                    lnWrite.setBackgroundResource(R.drawable.bg_not);
+                }
+            } else {
+                if (AnswerUser.equals(tvAnswerA.getText().toString())) {
+                    lnA.setBackgroundResource(R.drawable.bg_select);
+                    lnB.setBackgroundResource(R.drawable.bg_answer);
+                    lnC.setBackgroundResource(R.drawable.bg_answer);
+                    lnD.setBackgroundResource(R.drawable.bg_answer);
+
+                } else if (AnswerUser.equals(tvAnswerB.getText().toString())) {
+                    lnA.setBackgroundResource(R.drawable.bg_answer);
+                    lnB.setBackgroundResource(R.drawable.bg_select);
+                    lnC.setBackgroundResource(R.drawable.bg_answer);
+                    lnD.setBackgroundResource(R.drawable.bg_answer);
+
+                } else if (AnswerUser.equals(tvAnswerC.getText().toString())) {
+                    lnA.setBackgroundResource(R.drawable.bg_answer);
+                    lnB.setBackgroundResource(R.drawable.bg_answer);
+                    lnC.setBackgroundResource(R.drawable.bg_select);
+                    lnD.setBackgroundResource(R.drawable.bg_answer);
+
+                } else if (AnswerUser.equals(tvAnswerD.getText().toString())) {
+                    lnA.setBackgroundResource(R.drawable.bg_answer);
+                    lnB.setBackgroundResource(R.drawable.bg_answer);
+                    lnC.setBackgroundResource(R.drawable.bg_answer);
+                    lnD.setBackgroundResource(R.drawable.bg_select);
+                }
+            }
+        }
+
+
+        if (tvAnswerA.getText().toString().equals(testsQuestion.getResult())) {
+            BCDFalse();
+        } else if (tvAnswerB.getText().toString().equals(testsQuestion.getResult())) {
+            ACDFlase();
+        } else if (tvAnswerC.getText().toString().equals(testsQuestion.getResult())) {
+            ABDFalse();
+        } else if (tvAnswerD.getText().toString().equals(testsQuestion.getResult())) {
+            ABCFalse();
+        }
+    }
+
+    private void animate(RelativeLayout lnAnswer) {
         lnAnswer.animate()
                 .scaleY(0.9f)
                 .scaleX(0.9f)
@@ -190,7 +280,7 @@ public class TestsQuestionView extends FrameLayout {
     }
 
     private void selectA() {
-        callback.updateAnswer(tvAnswerA.getText().toString(),testsQuestion.getId());
+        callback.updateAnswer(tvAnswerA.getText().toString(), testsQuestion.getId());
         lnA.setBackgroundResource(R.drawable.bg_select);
         lnB.setBackgroundResource(R.drawable.bg_answer);
         lnC.setBackgroundResource(R.drawable.bg_answer);
@@ -198,7 +288,7 @@ public class TestsQuestionView extends FrameLayout {
     }
 
     private void selectB() {
-        callback.updateAnswer(tvAnswerB.getText().toString(),testsQuestion.getId());
+        callback.updateAnswer(tvAnswerB.getText().toString(), testsQuestion.getId());
         lnA.setBackgroundResource(R.drawable.bg_answer);
         lnB.setBackgroundResource(R.drawable.bg_select);
         lnC.setBackgroundResource(R.drawable.bg_answer);
@@ -206,7 +296,7 @@ public class TestsQuestionView extends FrameLayout {
     }
 
     private void selectC() {
-        callback.updateAnswer(tvAnswerC.getText().toString(),testsQuestion.getId());
+        callback.updateAnswer(tvAnswerC.getText().toString(), testsQuestion.getId());
         lnA.setBackgroundResource(R.drawable.bg_answer);
         lnB.setBackgroundResource(R.drawable.bg_answer);
         lnC.setBackgroundResource(R.drawable.bg_select);
@@ -214,7 +304,7 @@ public class TestsQuestionView extends FrameLayout {
     }
 
     private void selectD() {
-        callback.updateAnswer(tvAnswerD.getText().toString(),testsQuestion.getId());
+        callback.updateAnswer(tvAnswerD.getText().toString(), testsQuestion.getId());
         lnA.setBackgroundResource(R.drawable.bg_answer);
         lnB.setBackgroundResource(R.drawable.bg_answer);
         lnC.setBackgroundResource(R.drawable.bg_answer);
@@ -222,20 +312,9 @@ public class TestsQuestionView extends FrameLayout {
     }
 
     private void BCDFalse() {
-        checkB.setVisibility(VISIBLE);
-        checkC.setVisibility(VISIBLE);
-        checkD.setVisibility(VISIBLE);
         checkA.setVisibility(VISIBLE);
 
         checkA.setImageResource(R.drawable.ic_true);
-        checkB.setImageResource(R.drawable.ic_false);
-        checkC.setImageResource(R.drawable.ic_false);
-        checkD.setImageResource(R.drawable.ic_false);
-
-        lnB.setBackgroundResource(R.drawable.bg_false);
-        lnC.setBackgroundResource(R.drawable.bg_false);
-        lnD.setBackgroundResource(R.drawable.bg_false);
-
         lnA.setEnabled(false);
         lnB.setEnabled(false);
         lnC.setEnabled(false);
@@ -243,19 +322,10 @@ public class TestsQuestionView extends FrameLayout {
     }
 
     private void ACDFlase() {
-        checkA.setVisibility(VISIBLE);
-        checkC.setVisibility(VISIBLE);
-        checkD.setVisibility(VISIBLE);
         checkB.setVisibility(VISIBLE);
 
         checkB.setImageResource(R.drawable.ic_true);
-        checkA.setImageResource(R.drawable.ic_false);
-        checkC.setImageResource(R.drawable.ic_false);
-        checkD.setImageResource(R.drawable.ic_false);
 
-        lnA.setBackgroundResource(R.drawable.bg_false);
-        lnC.setBackgroundResource(R.drawable.bg_false);
-        lnD.setBackgroundResource(R.drawable.bg_false);
 
         lnA.setEnabled(false);
         lnB.setEnabled(false);
@@ -264,19 +334,10 @@ public class TestsQuestionView extends FrameLayout {
     }
 
     private void ABDFalse() {
-        checkA.setVisibility(VISIBLE);
-        checkB.setVisibility(VISIBLE);
-        checkD.setVisibility(VISIBLE);
         checkC.setVisibility(VISIBLE);
 
         checkC.setImageResource(R.drawable.ic_true);
-        checkA.setImageResource(R.drawable.ic_false);
-        checkB.setImageResource(R.drawable.ic_false);
-        checkD.setImageResource(R.drawable.ic_false);
 
-        lnA.setBackgroundResource(R.drawable.bg_false);
-        lnB.setBackgroundResource(R.drawable.bg_false);
-        lnD.setBackgroundResource(R.drawable.bg_false);
         lnA.setEnabled(false);
         lnB.setEnabled(false);
         lnC.setEnabled(false);
@@ -284,20 +345,9 @@ public class TestsQuestionView extends FrameLayout {
     }
 
     private void ABCFalse() {
-        checkA.setVisibility(VISIBLE);
-        checkB.setVisibility(VISIBLE);
-        checkC.setVisibility(VISIBLE);
         checkD.setVisibility(VISIBLE);
 
         checkD.setImageResource(R.drawable.ic_true);
-        checkA.setImageResource(R.drawable.ic_false);
-        checkB.setImageResource(R.drawable.ic_false);
-        checkC.setImageResource(R.drawable.ic_false);
-
-        lnA.setBackgroundResource(R.drawable.bg_false);
-        lnB.setBackgroundResource(R.drawable.bg_false);
-        lnC.setBackgroundResource(R.drawable.bg_false);
-
         lnA.setEnabled(false);
         lnB.setEnabled(false);
         lnC.setEnabled(false);
@@ -328,7 +378,7 @@ public class TestsQuestionView extends FrameLayout {
         }
     }
 
-    public interface Callback{
+    public interface Callback {
         void updateAnswer(String answer, int position);
     }
 

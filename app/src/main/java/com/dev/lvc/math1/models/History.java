@@ -2,12 +2,30 @@ package com.dev.lvc.math1.models;
 
 public class History {
 
+    private int id;
     private String lesson;
     private String time;
     private String result;
+    private String addTime;
 
     public History() {
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(String addTime) {
+        this.addTime = addTime;
     }
 
     public String getLesson() {

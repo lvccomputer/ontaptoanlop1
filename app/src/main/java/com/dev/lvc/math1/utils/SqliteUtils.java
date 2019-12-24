@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class SqliteUtils {
     public static SQLiteDatabase readDataBaseFromAssets(String filename, Context context) {
@@ -70,6 +71,8 @@ public class SqliteUtils {
             }while (cursor.moveToNext());
             cursor.close();
         }
+        Collections.reverse(histories);
+
         return histories;
     }
 }

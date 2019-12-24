@@ -1,5 +1,6 @@
 package com.dev.lvc.math1.fragments;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -8,14 +9,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
+import com.dev.lvc.math1.EndTime;
 import com.dev.lvc.math1.dialogs.PointerDialog;
 import com.dev.lvc.math1.dialogs.SubmitTestsDialog;
 import com.dev.lvc.math1.models.Pointer;
+import com.dev.lvc.math1.utils.AnswerArrayCache;
 import com.dev.lvc.math1.utils.DateTimeUtils;
 import com.dev.lvc.math1.utils.JsonUtils;
 import com.dev.lvc.math1.R;
@@ -51,6 +55,9 @@ public class TestsQuestionFragment extends BaseFragment {
 
     private String id;
 
+    private QuestionPagerAdapter questionPagerAdapter;
+    private boolean checkSubmit = false;
+
     public void setId(String id) {
         this.id = id;
     }
@@ -69,7 +76,7 @@ public class TestsQuestionFragment extends BaseFragment {
     }
 
     private void init() {
-        timerDown = new CounterClass(10 * 60 * 1000, 1000);
+
         viewPager = view.findViewById(R.id.viewPager);
         imgBack = view.findViewById(R.id.imgBack);
         tvTime = view.findViewById(R.id.tvTime);
@@ -77,15 +84,15 @@ public class TestsQuestionFragment extends BaseFragment {
         previousQuestion = view.findViewById(R.id.previousQuestion);
         imgSubmit = view.findViewById(R.id.imgSubmit);
 
-        QuestionPagerAdapter adapter = new QuestionPagerAdapter(JsonUtils.loadTestsJsonData(mainActivity, id), mainActivity) {
+        questionPagerAdapter = new QuestionPagerAdapter(JsonUtils.loadTestsJsonData(mainActivity, id), mainActivity, false) {
             @Override
             public void update(String answer, int position) {
                 Answers[position - 1] = answer;
             }
         };
 
-        viewPager.setAdapter(adapter);
-        int limit = (adapter.getCount() > 1 ? adapter.getCount() - 1 : 1);
+        viewPager.setAdapter(questionPagerAdapter);
+        int limit = (questionPagerAdapter.getCount() > 1 ? questionPagerAdapter.getCount() - 1 : 1);
 
         viewPager.setOffscreenPageLimit(limit);
 
@@ -99,7 +106,8 @@ public class TestsQuestionFragment extends BaseFragment {
             public void onPageSelected(int position) {
 
                 if (position == (viewPager.getAdapter().getCount() - 1)) {
-                    imgSubmit.setVisibility(View.VISIBLE);
+                    if (!checkSubmit)
+                        imgSubmit.setVisibility(View.VISIBLE);
                     nextQuestion.setVisibility(View.GONE);
                 } else {
                     imgSubmit.setVisibility(View.GONE);
@@ -132,26 +140,86 @@ public class TestsQuestionFragment extends BaseFragment {
             mainActivity.onBackPressed();
         });
 
+        timerDown = new CounterClass(10 * 60 * 1000, 1000);
+
         timerDown.start();
 
         imgSubmit.setOnClickListener(v -> {
-            timerDown.cancel();
-            SubmitTestsDialog dialog = new SubmitTestsDialog(mainActivity, new SubmitTestsDialog.SubmitTestListener() {
+            SubmitTestsDialog dialog = new SubmitTestsDialog(mainActivity, false, new SubmitTestsDialog.SubmitTestListener() {
                 @Override
                 public void Cancel() {
-                    timerDown.start();
                 }
 
                 @Override
                 public void Submit() {
+                    timerDown.cancel();
                     ArrayList<Pointer> pointers = new ArrayList<>();
                     for (int index = 0; index < Result.length; index++) {
                         Pointer point = new Pointer();
                         point.setPosition(index);
-                        if (Answers[index].equals(Result[index])) {
-                            pointer++;
-                            point.setTick(R.drawable.ic_true);
-                        } else point.setTick(R.drawable.ic_false);
+                        if (Answers[index] != null) {
+                            if (Answers[index].equals(Result[index])) {
+                                pointer++;
+                                point.setTick(R.drawable.ic_true);
+                            } else point.setTick(R.drawable.ic_false);
+                        } else point.setTick(R.drawable.ic_exclam);
+
+                        pointers.add(point);
+                    }
+                    ContentValues values = new ContentValues();
+                    values.put("title", exam);
+                    values.put("time", tvTime.getText().toString());
+                    values.put("pointer", pointer);
+                    values.put("timestart", "Làm bài lúc " + timeStart + " ngày " + dateStart);
+                    values.put("addtime",dateStart);
+                    mainActivity.historySqlite.insert("History", null, values);
+                    PointerDialog pointerDialog = new PointerDialog(mainActivity, pointers, String.valueOf(pointer), new PointerDialog.PointerListener() {
+                        @Override
+                        public void onReview() {
+                            questionPagerAdapter = new QuestionPagerAdapter(JsonUtils.loadTestsJsonData(mainActivity, id), mainActivity, true) {
+                                @Override
+                                public void update(String answer, int position) {
+
+                                }
+                            };
+                            viewPager.setAdapter(questionPagerAdapter);
+                            checkSubmit = true;
+                        }
+
+                        @Override
+                        public void onNext() {
+                            mainActivity.getSupportFragmentManager().popBackStack();
+
+                        }
+                    });
+                    pointerDialog.show();
+                }
+            });
+            dialog.show();
+        });
+
+
+        timerDown.setEndTime(() -> {
+            SubmitTestsDialog dialog = new SubmitTestsDialog(mainActivity, true, new SubmitTestsDialog.SubmitTestListener() {
+                @Override
+                public void Cancel() {
+
+                }
+
+                @Override
+                public void Submit() {
+                    timerDown.cancel();
+                    ArrayList<Pointer> pointers = new ArrayList<>();
+                    for (int index = 0; index < Result.length; index++) {
+                        Pointer point = new Pointer();
+                        point.setPosition(index);
+                        if (Answers[index] != null) {
+                            if (Answers[index].equals(Result[index])) {
+                                pointer++;
+                                point.setTick(R.drawable.ic_true);
+                            } else point.setTick(R.drawable.ic_false);
+                        } else point.setTick(R.drawable.ic_exclam);
+
                         pointers.add(point);
                     }
                     ContentValues values = new ContentValues();
@@ -163,7 +231,14 @@ public class TestsQuestionFragment extends BaseFragment {
                     PointerDialog pointerDialog = new PointerDialog(mainActivity, pointers, String.valueOf(pointer), new PointerDialog.PointerListener() {
                         @Override
                         public void onReview() {
+                            questionPagerAdapter = new QuestionPagerAdapter(JsonUtils.loadTestsJsonData(mainActivity, id), mainActivity, true) {
+                                @Override
+                                public void update(String answer, int position) {
 
+                                }
+                            };
+                            viewPager.setAdapter(questionPagerAdapter);
+                            checkSubmit = true;
                         }
 
                         @Override
@@ -207,20 +282,15 @@ public class TestsQuestionFragment extends BaseFragment {
     }
 
     public class CounterClass extends CountDownTimer {
-        /**
-         * @param millisInFuture    The number of millis in the future from the call
-         *                          to {@link #start()} until the countdown is done and {@link #onFinish()}
-         *                          is called.
-         * @param countDownInterval The interval along the way to receive
-         *                          {@link #onTick(long)} callbacks.
-         */
+        private EndTime endTime;
+
         public CounterClass(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
         }
 
         @Override
         public void onTick(long millisUntilFinished) {
-            String countTime = String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished), TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
+            @SuppressLint("DefaultLocale") String countTime = String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished), TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
                     TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)));
             tvTime.setText(countTime); //SetText cho textview hiện thị thời gian.
         }
@@ -228,6 +298,11 @@ public class TestsQuestionFragment extends BaseFragment {
         @Override
         public void onFinish() {
             tvTime.setText("00:00");  //SetText cho textview hiện thị thời gian.
+            if (endTime != null) endTime.endTime();
+        }
+
+        public void setEndTime(EndTime endTime) {
+            this.endTime = endTime;
         }
     }
 
@@ -235,4 +310,12 @@ public class TestsQuestionFragment extends BaseFragment {
     protected int getIdResource() {
         return R.layout.fragment_tests_question;
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        AnswerArrayCache.array = new String[10];
+    }
+
+
 }
