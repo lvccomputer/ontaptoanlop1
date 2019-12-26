@@ -22,12 +22,16 @@ public class JsonUtils {
         String json = null;
         try {
             InputStream inputStream = context.getAssets().open(nameJson);
+            Log.e(TAG, "inputStream: "+inputStream );
             int size = inputStream.available();
+            Log.e(TAG, "size: "+size );
             byte[] buffer = new byte[size];
+            Log.e(TAG, "buffer: "+buffer );
             inputStream.read(buffer);
             inputStream.close();
             json = new String(buffer, "UTF-8");
 
+            Log.e(TAG, "loadJSONFromAssets: "+json );
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -35,6 +39,7 @@ public class JsonUtils {
 
         }
         return json;
+
     }
 
     public static ArrayList<PracticeQuestion> loadPracticeJsonData(Context context, String id, String practiceid) {

@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void deleteSQLBefore10Days() {
         ArrayList<History> histories = new ArrayList<>();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM.dd.yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 
         Cursor cursor = historySqlite.rawQuery("select * from History ", null);
         if (cursor != null && cursor.moveToFirst()) {
@@ -106,27 +106,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             } while (cursor.moveToNext());
             cursor.close();
         }
-        long addTime=0;
-        long endTime =0;
+        long addTime = 0;
+        long endTime = 0;
         if (histories.size() > 0)
             for (int index = 0; index < histories.size(); index++) {
                 try {
-                    Date date = dateFormat.parse(histories.get(index).getAddTime());
-                    addTime = date.getTime();
-                    Calendar calendar = Calendar.getInstance();
-                    endTime = calendar.getTimeInMillis()-addTime;
+                    if (histories.get(index).getAddTime()!=null){
+                        Date date = dateFormat.parse(histories.get(index).getAddTime());
+                        Date dateNow = Calendar.getInstance().getTime();
+                       endTime= getDaysDifference(date,dateNow);
 
+                    }
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                Log.e("cuong", "deleteSQLBefore10Days: "+endTime );
-                if (endTime==10){
-                    SQLiteStatement stmt = historySqlite.compileStatement( "DELETE FROM History WHERE id == '" + histories.get( index ).getId() + "'" );
+                Log.e("cuong", "deleteSQLBefore10Days: " + endTime);
+                if (endTime == 10) {
+                    SQLiteStatement stmt = historySqlite.compileStatement("DELETE FROM History WHERE id == '" + histories.get(index).getId() + "'");
                     stmt.executeUpdateDelete();
 
                 }
             }
 
+    }
+    public static int getDaysDifference(Date fromDate,Date toDate)
+    {
+        if(fromDate==null||toDate==null)
+            return 0;
+
+        return (int)( (toDate.getTime() - fromDate.getTime()) / (1000 * 60 * 60 * 24));
     }
 
     protected boolean isExit = false;

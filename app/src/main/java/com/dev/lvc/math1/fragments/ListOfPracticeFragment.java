@@ -63,6 +63,7 @@ public class ListOfPracticeFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         initID();
         initView();
         loadDataFromJson();
@@ -78,6 +79,7 @@ public class ListOfPracticeFragment extends BaseFragment {
 
     private void initView(){
         tvTitle.setText(titleToolBar);
+
         listOfPracticeAdapter = new ListOfPracticeAdapter(practiceArrayList,mainActivity);
         rcvListOfPractice.setLayoutManager(new LinearLayoutManager(mainActivity));
         rcvListOfPractice.setAdapter(listOfPracticeAdapter);

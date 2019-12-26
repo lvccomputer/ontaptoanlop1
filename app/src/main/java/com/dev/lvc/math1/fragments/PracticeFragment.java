@@ -1,5 +1,7 @@
 package com.dev.lvc.math1.fragments;
 
+import android.content.res.Configuration;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -7,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -58,8 +62,10 @@ public class PracticeFragment extends BaseFragment {
     private void initView() {
         floatBack.setOnClickListener(v -> mainActivity.onBackPressed());
         practiceAdapter = new PracticeAdapter(practiceArrayList, mainActivity);
-        rcvLuyenTap.setLayoutManager(new GridLayoutManager(mainActivity,2));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(mainActivity,2);
+        rcvLuyenTap.setLayoutManager(gridLayoutManager);
         rcvLuyenTap.setAdapter(practiceAdapter);
+        rcvLuyenTap.addItemDecoration(new DividerItemDecorator(ContextCompat.getDrawable(mainActivity,R.drawable.divider)));
         practiceAdapter.setOnClickItemPractice((position, practice) -> {
             Log.e(TAG, "initView: " );
             mainActivity.showListOfPracticeFragment(String.valueOf(practice.getIdPractice()),practice.getTitlePractice(),practice.getFolderImage(),practice.getIcon());
@@ -67,6 +73,16 @@ public class PracticeFragment extends BaseFragment {
 
     }
 
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if(mainActivity.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            rcvLuyenTap.setLayoutManager(new GridLayoutManager(mainActivity, 2));
+        }
+        else{
+            rcvLuyenTap.setLayoutManager(new GridLayoutManager(mainActivity, 4));
+        }
+    }
 
     private void loadPracticeJsonData() {
         practiceArrayList.clear();

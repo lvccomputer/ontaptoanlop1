@@ -16,7 +16,8 @@
 
             <RelativeLayout
                 android:id="@+id/layoutCauHoi"
-                android:layout_width="match_parent"
+                android:layout_width="400dp"
+                android:layout_centerHorizontal="true"
                 android:layout_height="200dp"
                 android:layout_below="@+id/layoutNumber"
                 android:layout_marginLeft="10dp"
@@ -30,6 +31,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
+                    android:paddingStart="20dp"
                     android:layout_marginStart="50dp"
                     android:layout_marginTop="20dp"
                     android:gravity="center_vertical"
@@ -78,7 +80,7 @@
                     <RelativeLayout
 
                         android:id="@+id/lnA"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/bg_answer">
@@ -117,7 +119,7 @@
                     <RelativeLayout
                         android:id="@+id/lnB"
 
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/bg_answer">
@@ -157,7 +159,7 @@
                     <RelativeLayout
                         android:id="@+id/lnC"
 
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/bg_answer">
@@ -196,7 +198,7 @@
 
                     <RelativeLayout
                         android:id="@+id/lnD"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/bg_answer">

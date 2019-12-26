@@ -62,8 +62,8 @@ public class PracticeAdapter extends RecyclerView.Adapter<PracticeAdapter.ItemTr
             tvTitleTrain = itemView.findViewById(R.id.tvTitleTraining);
             view = itemView.findViewById(R.id.itemView);
 
-            itemView.getLayoutParams().height = (int) (context.getResources().getDisplayMetrics().heightPixels / 3);
-            itemView.getLayoutParams().width = (int) (context.getResources().getDisplayMetrics().widthPixels / 2);
+//            itemView.getLayoutParams().height = (int) (context.getResources().getDisplayMetrics().heightPixels / 3);
+//            itemView.getLayoutParams().width = (int) (context.getResources().getDisplayMetrics().widthPixels / 2);
             itemView.setOnClickListener(v -> {
                 if (onClickItemPractice!=null)onClickItemPractice.setOnClickItemPractice(getAdapterPosition(),practiceArrayList.get(getAdapterPosition()));
             });

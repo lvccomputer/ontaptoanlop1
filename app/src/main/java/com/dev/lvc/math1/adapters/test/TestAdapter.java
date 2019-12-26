@@ -62,8 +62,8 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ItemKiemTraVie
             tvNameOfTests = itemView.findViewById(R.id.tvType);
             imgIconOfTests = itemView.findViewById(R.id.imgLogo);
             tvNameOfTests.setGravity(Gravity.CENTER_HORIZONTAL );
-            itemView.getLayoutParams().height = (int) (context.getResources().getDisplayMetrics().heightPixels / 6);
-            itemView.getLayoutParams().width = (int) (context.getResources().getDisplayMetrics().widthPixels / 4);
+//            itemView.getLayoutParams().height = (int) (context.getResources().getDisplayMetrics().heightPixels / 6);
+//            itemView.getLayoutParams().width = (int) (context.getResources().getDisplayMetrics().widthPixels / 4);
             itemView.setOnClickListener(v -> {
                 if (onClickItemKiemTra!=null) onClickItemKiemTra.setOnClickItemKiemTra(getAdapterPosition());
 

@@ -1,5 +1,6 @@
 package com.dev.lvc.math1.fragments;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 
@@ -55,6 +56,18 @@ public class ListOfTestsFragment extends BaseFragment {
         });
 
     }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if(mainActivity.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            rcvKiemTra.setLayoutManager(new GridLayoutManager(mainActivity, 4));
+        }
+        else{
+            rcvKiemTra.setLayoutManager(new GridLayoutManager(mainActivity, 5));
+        }
+    }
+
     @Override
     protected int getIdResource() {
         return R.layout.fragment_list_of_tests;

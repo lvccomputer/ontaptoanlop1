@@ -227,6 +227,7 @@ public class TestsQuestionFragment extends BaseFragment {
                     values.put("time", tvTime.getText().toString());
                     values.put("pointer", pointer);
                     values.put("timestart", "Làm bài lúc " + timeStart + " ngày " + dateStart);
+                    values.put("addtime",dateStart);
                     mainActivity.historySqlite.insert("History", null, values);
                     PointerDialog pointerDialog = new PointerDialog(mainActivity, pointers, String.valueOf(pointer), new PointerDialog.PointerListener() {
                         @Override
